@@ -1,0 +1,9 @@
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\bin\Debug\ProcurementBalilihan.exe
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\bin\Debug\ProcurementBalilihan.pdb
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.LoginForm.resources
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.Properties.Resources.resources
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.Template.resources
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.csproj.GenerateResource.Cache
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.exe.licenses
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.exe
+D:\Github\Procurement\ProcurementBalilihan\ProcurementBalilihan\obj\Debug\ProcurementBalilihan.pdb
