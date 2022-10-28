@@ -1,0 +1,6 @@
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.HomepageForm.resources
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.LoginForm.resources
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.Properties.Resources.resources
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.SuppliersForm.resources
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.csproj.GenerateResource.Cache
+D:\Github\Procurement\ProcurementTracking\ProcurementTracking\obj\Debug\ProcurementTracking.exe.licenses
