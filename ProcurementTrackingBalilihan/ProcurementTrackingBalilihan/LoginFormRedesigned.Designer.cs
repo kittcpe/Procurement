@@ -37,10 +37,16 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bglogin
+            // 
+            this.bglogin.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bglogin_DoWork);
+            this.bglogin.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bglogin_RunWorkerCompleted);
             // 
             // lblconnectionstatus
             // 
@@ -150,6 +156,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtUserName;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
 
     }
 }
