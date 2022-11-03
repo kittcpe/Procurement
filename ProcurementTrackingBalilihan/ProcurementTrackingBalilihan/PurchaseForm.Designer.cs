@@ -48,17 +48,18 @@
             this.name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbstatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.bwViewSupplierList = new System.ComponentModel.BackgroundWorker();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
             this.bwViewProcurementList = new System.ComponentModel.BackgroundWorker();
+            this.bwPurchase = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbstatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPurchase
@@ -118,7 +119,7 @@
             // sl_name
             // 
             this.sl_name.Caption = "Supplier";
-            this.sl_name.FieldName = "supplier";
+            this.sl_name.FieldName = "name";
             this.sl_name.Name = "sl_name";
             this.sl_name.Visible = true;
             this.sl_name.VisibleIndex = 2;
@@ -126,7 +127,7 @@
             // status
             // 
             this.status.Caption = "Status";
-            this.status.FieldName = "to_ship";
+            this.status.FieldName = "status";
             this.status.Name = "status";
             this.status.Visible = true;
             this.status.VisibleIndex = 3;
@@ -146,11 +147,12 @@
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(772, 436);
+            this.btnLogin.Location = new System.Drawing.Point(780, 439);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(131, 56);
+            this.btnLogin.Size = new System.Drawing.Size(123, 53);
             this.btnLogin.TabIndex = 263;
             this.btnLogin.Text = "Purchase";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtDescription
             // 
@@ -252,18 +254,22 @@
             this.labelControl4.TabIndex = 304;
             this.labelControl4.Text = "Status:";
             // 
-            // comboBoxEdit1
+            // cmbstatus
             // 
-            this.comboBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxEdit1.Location = new System.Drawing.Point(543, 135);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbstatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbstatus.Location = new System.Drawing.Point(543, 135);
+            this.cmbstatus.Name = "cmbstatus";
+            this.cmbstatus.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbstatus.Properties.Appearance.Options.UseFont = true;
+            this.cmbstatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.NullText = "-- Select Status --";
-            this.comboBoxEdit1.Size = new System.Drawing.Size(360, 22);
-            this.comboBoxEdit1.TabIndex = 305;
+            this.cmbstatus.Properties.Items.AddRange(new object[] {
+            "To Ship",
+            "To Receive",
+            "Received"});
+            this.cmbstatus.Properties.NullText = "-- Select Status --";
+            this.cmbstatus.Size = new System.Drawing.Size(360, 22);
+            this.cmbstatus.TabIndex = 305;
             // 
             // bwViewSupplierList
             // 
@@ -277,12 +283,18 @@
             this.bwViewProcurementList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewProcurementList_DoWork);
             this.bwViewProcurementList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewProcurementList_RunWorkerCompleted);
             // 
+            // bwPurchase
+            // 
+            this.bwPurchase.WorkerSupportsCancellation = true;
+            this.bwPurchase.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwPurchase_DoWork);
+            this.bwPurchase.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwPurchase_RunWorkerCompleted);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 504);
-            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.cmbstatus);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.cmbSupplier);
@@ -304,7 +316,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSupplier.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbstatus.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,9 +343,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn name;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbstatus;
         private System.ComponentModel.BackgroundWorker bwViewSupplierList;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private System.ComponentModel.BackgroundWorker bwViewProcurementList;
+        private System.ComponentModel.BackgroundWorker bwPurchase;
     }
 }
