@@ -18,7 +18,7 @@ namespace ProcurementTrackingBalilihan
             InitializeComponent();
         }
 
-        private void dtPurchase_Click(object sender, EventArgs e)
+        private void dtTrack_Load(object sender, EventArgs e)
         {
             DataTable TrackItemList = new DataTable();
             dtTrack.DataSource = Purchase.GetTrackItem();

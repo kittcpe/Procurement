@@ -53,7 +53,7 @@
             this.dtTrack.TabIndex = 263;
             this.dtTrack.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
-            this.dtTrack.Click += new System.EventHandler(this.dtPurchase_Click);
+            this.dtTrack.Load += new System.EventHandler(this.dtTrack_Load);
             // 
             // gvSupplier
             // 
