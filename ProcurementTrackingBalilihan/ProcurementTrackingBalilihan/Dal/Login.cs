@@ -44,7 +44,7 @@ namespace ProcurementTrackingBalilihan.Dal
                 using (MySqlConnection con = new MySqlConnection(ConnectionString()))
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `user` WHERE `username` = '"+ Username+"';", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `user` WHERE `username` = '"+ Username+"' && `password` = PASSWORD('"+Password+"');", con);
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
                     con.Close();
