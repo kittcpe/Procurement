@@ -79,25 +79,15 @@ namespace ProcurementTrackingBalilihan
         }
         private void loginsuccess()
         {
-            this.Hide();
             HomepageForm hpf = new HomepageForm();
             this.Hide();
             hpf.ShowDialog();
-
-            try
+            if (UserLogout)
             {
-                if (UserLogout)
-                {
-                    this.Show();
-                    txtPassword.Text = string.Empty;
-                    txtUserName.Text = string.Empty;
-                }
-                else
-                {
-                    Application.Exit();
-                }
+                this.Show();
+                txtPassword.Text = string.Empty;
+                txtUserName.Text = string.Empty;
             }
-            catch { }
         }
         bool loadingIsAlreadyShowing = false;
         private void ShowLoading(string message)
@@ -138,6 +128,29 @@ namespace ProcurementTrackingBalilihan
         {
             ChangeConnectionForm changeform = new ChangeConnectionForm();
             changeform.ShowDialog();
+        }
+
+        private void LoginFormRedesigned_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Login.TryConnection();
+                if (Login.isConnection)
+                {
+                    lblconnectionstatus.Text = "Connection is Good!";
+                    lblconnectionstatus.ForeColor = System.Drawing.Color.FromArgb(0, 192, 0);
+                }
+                else
+                {
+                    lblconnectionstatus.Text = "Error in Connection!";
+                    lblconnectionstatus.ForeColor = System.Drawing.Color.FromArgb(192, 0, 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         
     }

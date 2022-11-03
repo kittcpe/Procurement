@@ -25,3 +25,4 @@ C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procureme
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.csproj.GenerateResource.Cache
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.exe.licenses
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.ChangeConnectionForm.resources
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.TrackItemForm.resources
