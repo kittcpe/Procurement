@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierForm));
-            this.gcSupplier = new DevExpress.XtraGrid.GridControl();
+            this.dtSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.supplier_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,7 +53,12 @@
             this.tsDelete = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).BeginInit();
+            this.bwViewSupplierList = new System.ComponentModel.BackgroundWorker();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
+            this.lblNoData = new DevExpress.XtraEditors.LabelControl();
+            this.lblid = new DevExpress.XtraEditors.LabelControl();
+            this.bwSaveSupplier = new System.ComponentModel.BackgroundWorker();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplierInfo)).BeginInit();
             this.gcSupplierInfo.SuspendLayout();
@@ -63,20 +68,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManagerGridParent)).BeginInit();
             this.SuspendLayout();
             // 
-            // gcSupplier
+            // dtSupplier
             // 
-            this.gcSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dtSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcSupplier.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcSupplier.Location = new System.Drawing.Point(12, 51);
-            this.gcSupplier.MainView = this.gvSupplier;
-            this.gcSupplier.Name = "gcSupplier";
-            this.gcSupplier.Size = new System.Drawing.Size(406, 320);
-            this.gcSupplier.TabIndex = 261;
-            this.gcSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtSupplier.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtSupplier.Location = new System.Drawing.Point(12, 51);
+            this.dtSupplier.MainView = this.gvSupplier;
+            this.dtSupplier.Name = "dtSupplier";
+            this.dtSupplier.Size = new System.Drawing.Size(406, 320);
+            this.dtSupplier.TabIndex = 261;
+            this.dtSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
-            this.gcSupplier.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gcSupplier_MouseDown);
+            this.dtSupplier.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gcSupplier_MouseDown);
             // 
             // gvSupplier
             // 
@@ -84,7 +89,7 @@
             this.id,
             this.supplier_name,
             this.supplier_address});
-            this.gvSupplier.GridControl = this.gcSupplier;
+            this.gvSupplier.GridControl = this.dtSupplier;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
             this.gvSupplier.OptionsFind.AlwaysVisible = true;
@@ -92,6 +97,7 @@
             this.gvSupplier.OptionsView.RowAutoHeight = true;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
             this.gvSupplier.OptionsView.ShowIndicator = false;
+            this.gvSupplier.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
             // 
             // id
             // 
@@ -102,7 +108,7 @@
             // supplier_name
             // 
             this.supplier_name.Caption = "Supplier Name";
-            this.supplier_name.FieldName = "supplier_name";
+            this.supplier_name.FieldName = "name";
             this.supplier_name.Name = "supplier_name";
             this.supplier_name.Visible = true;
             this.supplier_name.VisibleIndex = 0;
@@ -110,7 +116,7 @@
             // supplier_address
             // 
             this.supplier_address.Caption = "Address";
-            this.supplier_address.FieldName = "supplier_address";
+            this.supplier_address.FieldName = "address";
             this.supplier_address.Name = "supplier_address";
             this.supplier_address.Visible = true;
             this.supplier_address.VisibleIndex = 1;
@@ -204,6 +210,7 @@
             this.btnRefresh.Id = 3;
             this.btnRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnRefresh.LargeGlyph")));
             this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // barManagerGridParent
             // 
@@ -274,14 +281,45 @@
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "*right click to transact";
             // 
+            // bwViewSupplierList
+            // 
+            this.bwViewSupplierList.WorkerSupportsCancellation = true;
+            this.bwViewSupplierList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewSupplierList_DoWork);
+            this.bwViewSupplierList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewSupplierList_RunWorkerCompleted);
+            // 
+            // lblNoData
+            // 
+            this.lblNoData.Location = new System.Drawing.Point(168, 173);
+            this.lblNoData.Name = "lblNoData";
+            this.lblNoData.Size = new System.Drawing.Size(72, 13);
+            this.lblNoData.TabIndex = 267;
+            this.lblNoData.Text = "No Data Found";
+            this.lblNoData.Visible = false;
+            // 
+            // lblid
+            // 
+            this.lblid.Location = new System.Drawing.Point(212, 30);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(63, 13);
+            this.lblid.TabIndex = 272;
+            this.lblid.Text = "labelControl4";
+            // 
+            // bwSaveSupplier
+            // 
+            this.bwSaveSupplier.WorkerSupportsCancellation = true;
+            this.bwSaveSupplier.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwSaveSupplier_DoWork);
+            this.bwSaveSupplier.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwSaveSupplier_RunWorkerCompleted);
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 561);
+            this.Controls.Add(this.lblid);
+            this.Controls.Add(this.lblNoData);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.gcSupplierInfo);
-            this.Controls.Add(this.gcSupplier);
+            this.Controls.Add(this.dtSupplier);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -289,8 +327,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SupplierForm";
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.SupplierForm_Load);
             this.Shown += new System.EventHandler(this.SupplierForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplierInfo)).EndInit();
             this.gcSupplierInfo.ResumeLayout(false);
@@ -306,7 +345,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gcSupplier;
+        private DevExpress.XtraGrid.GridControl dtSupplier;
         private DevExpress.XtraGrid.Views.Grid.GridView gvSupplier;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn supplier_name;
@@ -329,6 +368,11 @@
         private DevExpress.XtraBars.BarButtonItem tsDelete;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.ComponentModel.BackgroundWorker bwViewSupplierList;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.LabelControl lblNoData;
+        private DevExpress.XtraEditors.LabelControl lblid;
+        private System.ComponentModel.BackgroundWorker bwSaveSupplier;
 
 
     }

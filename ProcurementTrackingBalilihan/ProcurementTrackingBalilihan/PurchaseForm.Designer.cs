@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseForm));
-            this.gcPurchase = new DevExpress.XtraGrid.GridControl();
+            this.dtPurchase = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,7 +49,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcPurchase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
@@ -58,18 +58,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gcPurchase
+            // dtPurchase
             // 
-            this.gcPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dtPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcPurchase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcPurchase.Location = new System.Drawing.Point(12, 12);
-            this.gcPurchase.MainView = this.gvSupplier;
-            this.gcPurchase.Name = "gcPurchase";
-            this.gcPurchase.Size = new System.Drawing.Size(422, 480);
-            this.gcPurchase.TabIndex = 262;
-            this.gcPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtPurchase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPurchase.Location = new System.Drawing.Point(12, 12);
+            this.dtPurchase.MainView = this.gvSupplier;
+            this.dtPurchase.Name = "dtPurchase";
+            this.dtPurchase.Size = new System.Drawing.Size(422, 480);
+            this.dtPurchase.TabIndex = 262;
+            this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
             // 
             // gvSupplier
@@ -81,7 +81,7 @@
             this.Supplier,
             this.Status,
             this.Date_Purchased});
-            this.gvSupplier.GridControl = this.gcPurchase;
+            this.gvSupplier.GridControl = this.dtPurchase;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
             this.gvSupplier.OptionsFind.AlwaysVisible = true;
@@ -276,13 +276,13 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.gcPurchase);
+            this.Controls.Add(this.dtPurchase);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PurchaseForm";
             this.Text = "Purchase";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.gcPurchase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
@@ -296,7 +296,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gcPurchase;
+        private DevExpress.XtraGrid.GridControl dtPurchase;
         private DevExpress.XtraGrid.Views.Grid.GridView gvSupplier;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn description;
