@@ -31,16 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFormRedesigned));
             this.bglogin = new System.ComponentModel.BackgroundWorker();
             this.lblconnectionstatus = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            this.ChangeConnectionbtn = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // bglogin
@@ -56,30 +57,6 @@
             this.lblconnectionstatus.Size = new System.Drawing.Size(91, 13);
             this.lblconnectionstatus.TabIndex = 13;
             this.lblconnectionstatus.Text = "Connection is good";
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(45, 23);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(300, 120);
-            this.pictureEdit1.TabIndex = 12;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Appearance.Options.UseFont = true;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(131, 348);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(147, 54);
-            this.btnLogin.TabIndex = 11;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
@@ -118,11 +95,48 @@
             this.txtUserName.Size = new System.Drawing.Size(197, 28);
             this.txtUserName.TabIndex = 7;
             // 
+            // ChangeConnectionbtn
+            // 
+            this.ChangeConnectionbtn.Image = ((System.Drawing.Image)(resources.GetObject("ChangeConnectionbtn.Image")));
+            this.ChangeConnectionbtn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.ChangeConnectionbtn.Location = new System.Drawing.Point(12, 416);
+            this.ChangeConnectionbtn.Name = "ChangeConnectionbtn";
+            this.ChangeConnectionbtn.Size = new System.Drawing.Size(150, 33);
+            this.ChangeConnectionbtn.TabIndex = 14;
+            this.ChangeConnectionbtn.Text = "Change Connection";
+            this.ChangeConnectionbtn.Click += new System.EventHandler(this.ChangeConnectionbtn_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(45, 23);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(300, 120);
+            this.pictureEdit1.TabIndex = 12;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Appearance.Options.UseFont = true;
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnLogin.Location = new System.Drawing.Point(131, 348);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(147, 54);
+            this.btnLogin.TabIndex = 11;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // LoginFormRedesigned
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.ChangeConnectionbtn);
             this.Controls.Add(this.lblconnectionstatus);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.btnLogin);
@@ -138,9 +152,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFormRedesigned";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,6 +171,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtUserName;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.SimpleButton ChangeConnectionbtn;
 
     }
 }

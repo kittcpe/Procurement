@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace ProcurementTrackingBalilihan.Core
 {
@@ -11,7 +12,7 @@ namespace ProcurementTrackingBalilihan.Core
         public static double ProjectVersion = 2.0;
 
         #region Server Details
-        public static string ServerConnectionString = "Server = 192.168.13.39; Database = bisu_procurement_tracking; Uid = bisu_procurement; Pwd = bisu_procurement; Port = 3306;";
+        public static string ServerConnectionString =  File.ReadLines("constring.txt").First();
         #endregion
     }
 }

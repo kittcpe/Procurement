@@ -39,13 +39,10 @@ namespace ProcurementTrackingBalilihan
                 }
                 else
                 {
-
                     //here
                     if (!bglogin.IsBusy) {
                         bglogin.RunWorkerAsync();
                     }
-
-
                 }
             }
         }
@@ -74,6 +71,10 @@ namespace ProcurementTrackingBalilihan
                 }
                 else
                     MessageBox.Show(Login.errormessage + "\nWrong Username or Password!!");
+            }
+            else
+            {
+                MessageBox.Show(Login.GetUserDataError);
             }
         }
         private void loginsuccess()
@@ -132,5 +133,12 @@ namespace ProcurementTrackingBalilihan
             }
             catch { }
         }
+
+        private void ChangeConnectionbtn_Click(object sender, EventArgs e)
+        {
+            ChangeConnectionForm changeform = new ChangeConnectionForm();
+            changeform.ShowDialog();
+        }
+        
     }
 }

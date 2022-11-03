@@ -33,7 +33,7 @@ namespace ProcurementTrackingBalilihan.Dal
             return PublicVariables.ServerConnectionString;
         }
 
-                public static string GetUserDataError = string.Empty;
+        public static string GetUserDataError = string.Empty;
         public static bool GetUserDataSuccessful = false;
 
         public static DataTable GetLogin(string Username, string Password)
@@ -44,10 +44,7 @@ namespace ProcurementTrackingBalilihan.Dal
                 using (MySqlConnection con = new MySqlConnection(ConnectionString()))
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("sp_user_login", con);//sakto ba ni?
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new MySqlParameter("_username", Username));
-                    cmd.Parameters.Add(new MySqlParameter("_password", Password));
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `user` WHERE `username` = '"+ Username+"';", con);
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
                     con.Close();
@@ -67,6 +64,24 @@ namespace ProcurementTrackingBalilihan.Dal
             {
                 GetUserDataError = ex.Message + "\n Function:  Login";
                 return null;
+            }
+        }
+
+        public static string TestConnectionError = string.Empty;
+        public static bool TestConnectionSuccessful = false;
+        public static void TestConnection(string server,string db, string uid, string password, string port)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection("Server = " + server +"; Database = "+ db +"; Uid = " + uid + "; Pwd = " + password + "; Port = " + port + ";"))
+                {
+                    con.Open();
+                    TestConnectionSuccessful = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                TestConnectionError = ex.Message;
             }
         }
 
