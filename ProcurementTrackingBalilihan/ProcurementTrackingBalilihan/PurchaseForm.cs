@@ -55,16 +55,24 @@ namespace ProcurementTrackingBalilihan
                 bwViewSupplierList.RunWorkerAsync();
             
             }
+            if (!bwViewProcurementList.IsBusy)
+            {
+                ShowLoading("Loading Procurement List");
+                bwViewProcurementList.RunWorkerAsync();
+            
+            }
 
         }
         DataTable procurementdata = new DataTable();
         private void bwViewProcurementList_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            procurementdata = Purchase.GetProcurementList();
+            bwViewProcurementList.CancelAsync();
         }
         private void bwViewProcurementList_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            HideLoading();
+            dtPurchase.DataSource = procurementdata;
         }
 
 
