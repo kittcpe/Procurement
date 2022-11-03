@@ -34,10 +34,10 @@
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Supplier = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.supplier_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Date_Purchased = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPurchase = new DevExpress.XtraEditors.SimpleButton();
             this.txtDescription = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -49,6 +49,11 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.bwViewProcurementList = new System.ComponentModel.BackgroundWorker();
+            this.bwViewSupplierList = new System.ComponentModel.BackgroundWorker();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
@@ -64,10 +69,10 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtPurchase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPurchase.Location = new System.Drawing.Point(12, 12);
+            this.dtPurchase.Location = new System.Drawing.Point(12, 34);
             this.dtPurchase.MainView = this.gvSupplier;
             this.dtPurchase.Name = "dtPurchase";
-            this.dtPurchase.Size = new System.Drawing.Size(422, 480);
+            this.dtPurchase.Size = new System.Drawing.Size(421, 458);
             this.dtPurchase.TabIndex = 262;
             this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
@@ -78,7 +83,7 @@
             this.id,
             this.description,
             this.Amount,
-            this.Supplier,
+            this.supplier_name,
             this.Status,
             this.Date_Purchased});
             this.gvSupplier.GridControl = this.dtPurchase;
@@ -112,13 +117,13 @@
             this.Amount.Visible = true;
             this.Amount.VisibleIndex = 1;
             // 
-            // Supplier
+            // supplier_name
             // 
-            this.Supplier.Caption = "Supplier";
-            this.Supplier.FieldName = "supplier";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.Visible = true;
-            this.Supplier.VisibleIndex = 2;
+            this.supplier_name.Caption = "Supplier Name";
+            this.supplier_name.FieldName = "supplier_id";
+            this.supplier_name.Name = "supplier_name";
+            this.supplier_name.Visible = true;
+            this.supplier_name.VisibleIndex = 2;
             // 
             // Status
             // 
@@ -136,18 +141,18 @@
             this.Date_Purchased.Visible = true;
             this.Date_Purchased.VisibleIndex = 4;
             // 
-            // btnLogin
+            // btnPurchase
             // 
-            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Appearance.Options.UseFont = true;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(772, 436);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(131, 56);
-            this.btnLogin.TabIndex = 263;
-            this.btnLogin.Text = "Purchase";
+            this.btnPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPurchase.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPurchase.Appearance.Options.UseFont = true;
+            this.btnPurchase.Image = ((System.Drawing.Image)(resources.GetObject("btnPurchase.Image")));
+            this.btnPurchase.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnPurchase.Location = new System.Drawing.Point(772, 447);
+            this.btnPurchase.Name = "btnPurchase";
+            this.btnPurchase.Size = new System.Drawing.Size(131, 45);
+            this.btnPurchase.TabIndex = 263;
+            this.btnPurchase.Text = "Purchase";
             // 
             // txtDescription
             // 
@@ -262,11 +267,47 @@
             this.comboBoxEdit1.Size = new System.Drawing.Size(360, 22);
             this.comboBoxEdit1.TabIndex = 305;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Location = new System.Drawing.Point(12, 12);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(168, 16);
+            this.labelControl5.TabIndex = 306;
+            this.labelControl5.Text = "List of Procured Item";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnCancel.Location = new System.Drawing.Point(645, 447);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(121, 45);
+            this.btnCancel.TabIndex = 307;
+            this.btnCancel.Text = "Cancel";
+            // 
+            // bwViewProcurementList
+            // 
+            this.bwViewProcurementList.WorkerSupportsCancellation = true;
+            this.bwViewProcurementList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewProcurementList_DoWork);
+            this.bwViewProcurementList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewProcurementList_RunWorkerCompleted);
+            // 
+            // bwViewSupplierList
+            // 
+            this.bwViewSupplierList.WorkerSupportsCancellation = true;
+            this.bwViewSupplierList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewSupplierList_DoWork);
+            this.bwViewSupplierList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewSupplierList_RunWorkerCompleted);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 504);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
@@ -275,13 +316,14 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnPurchase);
             this.Controls.Add(this.dtPurchase);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PurchaseForm";
             this.Text = "Purchase";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.PurchaseForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -301,10 +343,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn description;
         private DevExpress.XtraGrid.Columns.GridColumn Amount;
-        private DevExpress.XtraGrid.Columns.GridColumn Supplier;
+        private DevExpress.XtraGrid.Columns.GridColumn supplier_name;
         private DevExpress.XtraGrid.Columns.GridColumn Status;
         private DevExpress.XtraGrid.Columns.GridColumn Date_Purchased;
-        private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private DevExpress.XtraEditors.SimpleButton btnPurchase;
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -316,5 +358,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private System.ComponentModel.BackgroundWorker bwViewProcurementList;
+        private System.ComponentModel.BackgroundWorker bwViewSupplierList;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

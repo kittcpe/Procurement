@@ -1,1 +1,1 @@
-Server = localhost; Database = procurement_tracking; Uid=root; Pwd=password; Port=3307
+Server = localhost; Database = procurement_tracking; Uid=dev; Pwd=dev; Port=3306
