@@ -26,7 +26,7 @@ namespace ProcurementTrackingBalilihan.Dal
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT pl.description,pl.`amount`,pl.`added_on`,pl.`status`,sl.`name` FROM `procurement_list` pl INNER JOIN `supplier_list` sl WHERE pl.`supplier` = sl.`id`;", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT pl.id,pl.description,pl.`amount`,pl.`added_on`,pl.`status`,sl.`name` FROM `procurement_list` pl INNER JOIN `supplier_list` sl WHERE pl.`supplier` = sl.`id`;", con);
                     //  cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
@@ -64,9 +64,35 @@ namespace ProcurementTrackingBalilihan.Dal
                     }
 
 
+            }
+
+        }
+
+        public static bool isUpdateSuccessfully = false;
+        public static string UpdateErrorMessage;
+
+        public static void UpdateStatus(string id,string status)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+            {
+                try
+                {
+                    con.Open();
+                    //
+                    MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_list` SET STATUS='"+status+"' WHERE id ='"+id+"' ", con);
+                    cmd.ExecuteNonQuery();
+                    isUpdateSuccessfully = true;
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    UpdateErrorMessage = ex.Message + "\n Function: Update Purchase";
                 }
 
+
             }
+
+        }
         
 
     }

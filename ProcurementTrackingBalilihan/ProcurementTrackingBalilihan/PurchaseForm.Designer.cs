@@ -37,6 +37,7 @@
             this.sl_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.added_on = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.txtDescription = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -75,6 +76,8 @@
             this.dtPurchase.TabIndex = 262;
             this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
+            this.dtPurchase.DoubleClick += new System.EventHandler(this.dtPurchase_DoubleClick);
+            this.dtPurchase.MouseEnter += new System.EventHandler(this.dtPurchase_MouseEnter);
             // 
             // gvSupplier
             // 
@@ -84,7 +87,8 @@
             this.Amount,
             this.sl_name,
             this.status,
-            this.added_on});
+            this.added_on,
+            this.gridColumn2});
             this.gvSupplier.GridControl = this.dtPurchase;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
@@ -139,6 +143,12 @@
             this.added_on.Name = "added_on";
             this.added_on.Visible = true;
             this.added_on.VisibleIndex = 4;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.FieldName = "id";
+            this.gridColumn2.Name = "gridColumn2";
             // 
             // btnLogin
             // 
@@ -348,5 +358,6 @@
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private System.ComponentModel.BackgroundWorker bwViewProcurementList;
         private System.ComponentModel.BackgroundWorker bwPurchase;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

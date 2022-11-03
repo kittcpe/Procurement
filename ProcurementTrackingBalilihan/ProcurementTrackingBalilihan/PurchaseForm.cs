@@ -17,6 +17,7 @@ namespace ProcurementTrackingBalilihan
         public PurchaseForm()
         {
             InitializeComponent();
+
         }
         #region WaitForm
         bool loadingIsAlreadyShowing = false;
@@ -173,14 +174,26 @@ namespace ProcurementTrackingBalilihan
             {
                 ShowLoading("Loading Procurement List");
                 bwViewProcurementList.RunWorkerAsync();
-
             }
-        
         }
-        
-        
-        
-       
 
+        public static string sup_id;
+        private void dtPurchase_DoubleClick(object sender, EventArgs e)
+        {
+           // string id =  .GetRowCellValue(gridView1.FocusedRowHandle, "title") + "";
+            sup_id = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "id") + "";
+            ChangeStatusForm csf = new ChangeStatusForm();
+            csf.ShowDialog();
+        }
+
+        private void dtPurchase_MouseEnter(object sender, EventArgs e)
+        {
+            if (ChangeStatusForm.isrefresh)
+            {
+                clearfields();
+                ChangeStatusForm.isrefresh = false;
+            }
+        }
+       
     }
 }
