@@ -66,7 +66,7 @@ namespace ProcurementTrackingBalilihan
         DataTable procurementdata = new DataTable();
         private void bwViewProcurementList_DoWork(object sender, DoWorkEventArgs e)
         {
-            procurementdata = Purchase.GetProcurementList();
+            procurementdata = Purchase.GetTrackItem();
             bwViewProcurementList.CancelAsync();
         }
         private void bwViewProcurementList_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -104,6 +104,20 @@ namespace ProcurementTrackingBalilihan
         private void ClearData()
         {
             cmbSupplier.Properties.DataSource = null;
+        }
+
+        private void PurchaseForm_Shown_1(object sender, EventArgs e)
+        {
+            if (!bwViewProcurementList.IsBusy)
+            {
+                ShowLoading("Loading data . . .");
+                bwViewProcurementList.RunWorkerAsync();
+            }
+            if (!bwViewSupplierList.IsBusy)
+            {
+                ShowLoading("Loading data . . .");
+                bwViewSupplierList.RunWorkerAsync();
+            }
         }
 
 

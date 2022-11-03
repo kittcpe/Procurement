@@ -34,9 +34,9 @@
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Amount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Supplier = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Date_Purchased = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sl_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.added_on = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.txtDescription = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -49,6 +49,9 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.bwViewSupplierList = new System.ComponentModel.BackgroundWorker();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
+            this.bwViewProcurementList = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
@@ -78,9 +81,9 @@
             this.id,
             this.description,
             this.Amount,
-            this.Supplier,
-            this.Status,
-            this.Date_Purchased});
+            this.sl_name,
+            this.status,
+            this.added_on});
             this.gvSupplier.GridControl = this.dtPurchase;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
@@ -112,29 +115,29 @@
             this.Amount.Visible = true;
             this.Amount.VisibleIndex = 1;
             // 
-            // Supplier
+            // sl_name
             // 
-            this.Supplier.Caption = "Supplier";
-            this.Supplier.FieldName = "supplier";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.Visible = true;
-            this.Supplier.VisibleIndex = 2;
+            this.sl_name.Caption = "Supplier";
+            this.sl_name.FieldName = "supplier";
+            this.sl_name.Name = "sl_name";
+            this.sl_name.Visible = true;
+            this.sl_name.VisibleIndex = 2;
             // 
-            // Status
+            // status
             // 
-            this.Status.Caption = "Status";
-            this.Status.FieldName = "to_ship";
-            this.Status.Name = "Status";
-            this.Status.Visible = true;
-            this.Status.VisibleIndex = 3;
+            this.status.Caption = "Status";
+            this.status.FieldName = "to_ship";
+            this.status.Name = "status";
+            this.status.Visible = true;
+            this.status.VisibleIndex = 3;
             // 
-            // Date_Purchased
+            // added_on
             // 
-            this.Date_Purchased.Caption = "Date Purchased";
-            this.Date_Purchased.FieldName = "added_on";
-            this.Date_Purchased.Name = "Date_Purchased";
-            this.Date_Purchased.Visible = true;
-            this.Date_Purchased.VisibleIndex = 4;
+            this.added_on.Caption = "Date Purchased";
+            this.added_on.FieldName = "added_on";
+            this.added_on.Name = "added_on";
+            this.added_on.Visible = true;
+            this.added_on.VisibleIndex = 4;
             // 
             // btnLogin
             // 
@@ -262,6 +265,18 @@
             this.comboBoxEdit1.Size = new System.Drawing.Size(360, 22);
             this.comboBoxEdit1.TabIndex = 305;
             // 
+            // bwViewSupplierList
+            // 
+            this.bwViewSupplierList.WorkerSupportsCancellation = true;
+            this.bwViewSupplierList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewSupplierList_DoWork);
+            this.bwViewSupplierList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewSupplierList_RunWorkerCompleted);
+            // 
+            // bwViewProcurementList
+            // 
+            this.bwViewProcurementList.WorkerSupportsCancellation = true;
+            this.bwViewProcurementList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwViewProcurementList_DoWork);
+            this.bwViewProcurementList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwViewProcurementList_RunWorkerCompleted);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +297,7 @@
             this.Name = "PurchaseForm";
             this.Text = "Purchase";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.PurchaseForm_Shown_1);
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -301,9 +317,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn description;
         private DevExpress.XtraGrid.Columns.GridColumn Amount;
-        private DevExpress.XtraGrid.Columns.GridColumn Supplier;
-        private DevExpress.XtraGrid.Columns.GridColumn Status;
-        private DevExpress.XtraGrid.Columns.GridColumn Date_Purchased;
+        private DevExpress.XtraGrid.Columns.GridColumn sl_name;
+        private DevExpress.XtraGrid.Columns.GridColumn status;
+        private DevExpress.XtraGrid.Columns.GridColumn added_on;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -316,5 +332,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.ComponentModel.BackgroundWorker bwViewSupplierList;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private System.ComponentModel.BackgroundWorker bwViewProcurementList;
     }
 }
