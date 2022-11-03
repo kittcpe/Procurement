@@ -13,8 +13,8 @@ namespace ProcurementTrackingBalilihan
     
     public partial class HomepageForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-       
 
+        public static bool islogout = false;
         public HomepageForm()
         {
             InitializeComponent();
@@ -90,7 +90,33 @@ namespace ProcurementTrackingBalilihan
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            LoginFormRedesigned.UserLogout = true;
+            this.Hide();
+        }
+        
+        public static bool TrackItemFormIsOpen = false;
+        private void btnTrackItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!TrackItemFormIsOpen)
+            {
+                TrackItemFormIsOpen = true;
+                TrackItemForm tif = new TrackItemForm();
+                tif.MdiParent = this;
+                tif.WindowState = FormWindowState.Maximized;
+                tif.Show();
+            }
+            else
+            {
+                Form fc = Application.OpenForms["TrackItemForm"];
+                if (fc == null)
+                {
+                    PurchaseForm a1 = new PurchaseForm();
+                    a1.MdiParent = this;
+                    a1.Show();
+                }
+                else
+                    fc.Activate();
+            }
         }
 
     }

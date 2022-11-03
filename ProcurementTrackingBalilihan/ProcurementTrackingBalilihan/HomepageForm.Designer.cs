@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomepageForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnPurchase = new DevExpress.XtraBars.BarButtonItem();
             this.btnTrackItem = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.rpHomepage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.btnSuppliers = new DevExpress.XtraBars.BarButtonItem();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -94,6 +93,7 @@
             this.btnTrackItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTrackItem.LargeGlyph")));
             this.btnTrackItem.Name = "btnTrackItem";
             this.btnTrackItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnTrackItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTrackItem_ItemClick);
             // 
             // btnLogout
             // 
@@ -103,6 +103,14 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Logout [user]";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // rpHomepage
             // 
@@ -142,14 +150,6 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Logout [user]";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 2;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // HomepageForm
             // 

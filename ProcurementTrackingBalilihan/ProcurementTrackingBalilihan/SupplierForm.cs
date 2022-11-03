@@ -135,6 +135,7 @@ namespace ProcurementTrackingBalilihan
             if (gvSupplier.SelectedRowsCount > 0)
             {
                 supplierId = Convert.ToInt32(gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "id"));
+                lblid.Text = supplierId.ToString();
             }
         }
 

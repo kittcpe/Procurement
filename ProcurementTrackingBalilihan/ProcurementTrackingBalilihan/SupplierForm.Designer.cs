@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierForm));
             this.dtSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,11 +41,11 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtname = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.popupMenuGridParent = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenuGridParent = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnAddSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnEditSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.barManagerGridParent = new DevExpress.XtraBars.BarManager();
+            this.barManagerGridParent = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -55,6 +56,7 @@
             this.bwViewSupplierList = new System.ComponentModel.BackgroundWorker();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
             this.lblNoData = new DevExpress.XtraEditors.LabelControl();
+            this.lblid = new DevExpress.XtraEditors.LabelControl();
             this.bwSaveSupplier = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
@@ -294,6 +296,14 @@
             this.lblNoData.Text = "No Data Found";
             this.lblNoData.Visible = false;
             // 
+            // lblid
+            // 
+            this.lblid.Location = new System.Drawing.Point(212, 30);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(63, 13);
+            this.lblid.TabIndex = 272;
+            this.lblid.Text = "labelControl4";
+            // 
             // bwSaveSupplier
             // 
             this.bwSaveSupplier.WorkerSupportsCancellation = true;
@@ -305,6 +315,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 561);
+            this.Controls.Add(this.lblid);
             this.Controls.Add(this.lblNoData);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.gcSupplierInfo);
@@ -360,6 +371,7 @@
         private System.ComponentModel.BackgroundWorker bwViewSupplierList;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraEditors.LabelControl lblNoData;
+        private DevExpress.XtraEditors.LabelControl lblid;
         private System.ComponentModel.BackgroundWorker bwSaveSupplier;
 
 
