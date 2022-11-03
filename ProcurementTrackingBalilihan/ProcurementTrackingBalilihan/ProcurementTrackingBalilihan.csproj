@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Core\PublicVariables.cs" />
     <Compile Include="Dal\Login.cs" />
+    <Compile Include="Dal\Supplier.cs" />
     <Compile Include="LoginFormRedesigned.cs">
       <SubType>Form</SubType>
     </Compile>
