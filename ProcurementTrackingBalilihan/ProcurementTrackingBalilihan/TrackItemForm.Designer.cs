@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtPurchase = new DevExpress.XtraGrid.GridControl();
+            this.dtTrack = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,23 +36,24 @@
             this.Supplier = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Status = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Date_Purchased = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtPurchase
+            // dtTrack
             // 
-            this.dtPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dtTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtPurchase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPurchase.Location = new System.Drawing.Point(12, 12);
-            this.dtPurchase.MainView = this.gvSupplier;
-            this.dtPurchase.Name = "dtPurchase";
-            this.dtPurchase.Size = new System.Drawing.Size(517, 444);
-            this.dtPurchase.TabIndex = 263;
-            this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dtTrack.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTrack.Location = new System.Drawing.Point(12, 12);
+            this.dtTrack.MainView = this.gvSupplier;
+            this.dtTrack.Name = "dtTrack";
+            this.dtTrack.Size = new System.Drawing.Size(517, 444);
+            this.dtTrack.TabIndex = 263;
+            this.dtTrack.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
+            this.dtTrack.Click += new System.EventHandler(this.dtPurchase_Click);
             // 
             // gvSupplier
             // 
@@ -63,7 +64,7 @@
             this.Supplier,
             this.Status,
             this.Date_Purchased});
-            this.gvSupplier.GridControl = this.dtPurchase;
+            this.gvSupplier.GridControl = this.dtTrack;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
             this.gvSupplier.OptionsFind.AlwaysVisible = true;
@@ -97,7 +98,7 @@
             // Supplier
             // 
             this.Supplier.Caption = "Supplier";
-            this.Supplier.FieldName = "supplier";
+            this.Supplier.FieldName = "name";
             this.Supplier.Name = "Supplier";
             this.Supplier.Visible = true;
             this.Supplier.VisibleIndex = 2;
@@ -105,7 +106,7 @@
             // Status
             // 
             this.Status.Caption = "Status";
-            this.Status.FieldName = "to_ship";
+            this.Status.FieldName = "status";
             this.Status.Name = "Status";
             this.Status.Visible = true;
             this.Status.VisibleIndex = 3;
@@ -123,10 +124,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 468);
-            this.Controls.Add(this.dtPurchase);
+            this.Controls.Add(this.dtTrack);
             this.Name = "TrackItemForm";
             this.Text = "TrackItemForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTrack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             this.ResumeLayout(false);
 
@@ -134,7 +135,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl dtPurchase;
+        private DevExpress.XtraGrid.GridControl dtTrack;
         private DevExpress.XtraGrid.Views.Grid.GridView gvSupplier;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn description;
