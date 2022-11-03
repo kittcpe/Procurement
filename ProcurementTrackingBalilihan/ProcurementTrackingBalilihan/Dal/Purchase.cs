@@ -42,5 +42,32 @@ namespace ProcurementTrackingBalilihan.Dal
 
 
         }
+        public static bool isSaveSuccessfully = false;
+        public static string SaveErrorMessage;
+
+        public static void AddSavePurchase(string description, int amount, int supplier, string status)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+            {
+                    try
+                    {
+                        con.Open();
+                        //
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO procurement_list (description, amount, supplier, status) VALUES ('" + description + "','" + amount + "'," + supplier + ",'" + status + "')", con);
+                        cmd.ExecuteNonQuery();
+                        isSaveSuccessfully = true;
+                        con.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        SaveErrorMessage = ex.Message + "\n Function: Save Purchase";
+                    }
+
+
+                }
+
+            }
+        
+
     }
 }

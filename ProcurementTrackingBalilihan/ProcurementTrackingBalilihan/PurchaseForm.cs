@@ -120,6 +120,67 @@ namespace ProcurementTrackingBalilihan
             }
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (!bwPurchase.IsBusy)
+            {
+                bwPurchase.RunWorkerAsync();
+            }
+        }
+        int supplierID;
+        private void Purchase_Item() {
+            supplierID = string.IsNullOrEmpty(cmbSupplier.Text) ? 0 : Convert.ToInt32(cmbSupplier.EditValue);
+            if (txtDescription.Text == string.Empty)
+            { MessageBox.Show("Please Input Description!"); }
+            else
+            {
+                if (txtAmount.Text == string.Empty)
+                { MessageBox.Show("Please Input Amount"); }
+                else
+                {
+                    Purchase.AddSavePurchase(txtDescription.Text, Convert.ToInt32(txtAmount.Text), supplierID, cmbstatus.Text);
+                }
+            }
+        
+        }
+
+        private void bwPurchase_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Purchase_Item();
+            bwPurchase.CancelAsync();
+        }
+
+        private void bwPurchase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            HideLoading();
+            if (Purchase.isSaveSuccessfully == true)
+            {
+                MessageBox.Show("Saved Successfuly");
+            }
+            else
+            {
+                MessageBox.Show("Save unsuccessful!" + Purchase.SaveErrorMessage);
+            }
+            clearfields();
+            
+
+        }
+        private void clearfields() {
+            txtDescription.Text = string.Empty;
+            txtAmount.Text = string.Empty;
+
+            if (!bwViewProcurementList.IsBusy)
+            {
+                ShowLoading("Loading Procurement List");
+                bwViewProcurementList.RunWorkerAsync();
+
+            }
+        
+        }
+        
+        
+        
+       
 
     }
 }
