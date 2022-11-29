@@ -118,5 +118,11 @@ namespace ProcurementTrackingBalilihan
                     fc.Activate();
             }
         }
+
+        private void btnPrint_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PrintForm pf = new PrintForm();
+            pf.ShowDialog();
+        }
     }
 }
