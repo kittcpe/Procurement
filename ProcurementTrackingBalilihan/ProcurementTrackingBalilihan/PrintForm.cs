@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace ProcurementTrackingBalilihan
 {
@@ -15,6 +16,13 @@ namespace ProcurementTrackingBalilihan
         public PrintForm()
         {
             InitializeComponent();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PrintReport pr = new PrintReport();
+            pr.lblno.Text = "gwapo ko";
+            pr.ShowPreviewDialog();
         }
     }
 }

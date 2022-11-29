@@ -53,15 +53,6 @@ namespace ProcurementTrackingBalilihan
         }
 
         }
-
-        private void HomepageForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DialogResult dia = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dia == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
         public static bool PurchaseFormIsOpen = false;
         private void btnPurchase_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -123,6 +114,20 @@ namespace ProcurementTrackingBalilihan
         {
             PrintForm pf = new PrintForm();
             pf.ShowDialog();
+            //PrintReport p = new PrintReport();
+            //p.ShowPreviewDialog();
+        }
+
+        private void HomepageForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dia = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dia == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else {
+                e.Cancel = true;
+            }
         }
     }
 }
