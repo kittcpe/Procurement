@@ -87,6 +87,7 @@ namespace ProcurementTrackingBalilihan
 
         private void btnAddSupplier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            btnDelete.Visible = false;
             gcSupplierInfo.Visible = true;
             btnSave.Text = "Add";
             clearfields();
@@ -96,6 +97,7 @@ namespace ProcurementTrackingBalilihan
 
         private void btnEditSupplier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            btnDelete.Visible = true;
             gcSupplierInfo.Visible = true;
             txtname.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "name").ToString();
             txtaddress.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "address").ToString();
@@ -186,6 +188,7 @@ namespace ProcurementTrackingBalilihan
             else
             {
                 //add
+                btnDelete.Visible = false;
                 Supplier.AddSaveSupplier(txtname.Text, txtaddress.Text, 0);
 
             }
@@ -194,6 +197,42 @@ namespace ProcurementTrackingBalilihan
         private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ViewList();
+        }
+
+        //delete module
+        private void bwDeleteSupplier_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Supplier.DeleteSupplier(txtname.Text);
+            bwDeleteSupplier.CancelAsync();
+        }
+
+        private void bwDeleteSupplier_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            HideLoading();
+            if (Supplier.isDeleted)
+            { MessageBox.Show("Supplier Deleted"); }
+            else
+            { MessageBox.Show(Supplier.DeleteErrorMessage); }
+            btnRefresh.PerformClick();
+            clearfields();
+            
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (btnSave.Text == "Save")
+            {
+                //delete
+               
+                if (!bwDeleteSupplier.IsBusy)
+                {
+                    ShowLoading("Deleting . . .");
+                    bwDeleteSupplier.RunWorkerAsync();
+                }
+                
+                
+            }
         }
 
 

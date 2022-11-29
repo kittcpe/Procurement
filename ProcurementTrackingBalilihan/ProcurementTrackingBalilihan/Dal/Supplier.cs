@@ -79,6 +79,31 @@ namespace ProcurementTrackingBalilihan.Dal
 
             }
         }
+        public static bool isDeleted = false;
+        public static string DeleteErrorMessage;
+        public static void DeleteSupplier(string Name)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+            {
+
+                    try
+                    {
+                        con.Open();
+                        //
+                        MySqlCommand cmd = new MySqlCommand("DELETE FROM supplier_list WHERE `name` = '" + Name + "'", con);
+                        cmd.ExecuteNonQuery();
+                        isDeleted = true;
+                        con.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        DeleteErrorMessage = ex.Message + "\n Function: Delete Supplier";
+                    }
+
+
+
+            }
+        }
 
     }
 }

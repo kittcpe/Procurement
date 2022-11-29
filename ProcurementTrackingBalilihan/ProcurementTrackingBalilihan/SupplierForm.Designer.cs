@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierForm));
             this.dtSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -35,15 +36,16 @@
             this.supplier_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.supplier_address = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcSupplierInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtaddress = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtname = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.popupMenuGridParent = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenuGridParent = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnAddSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnEditSupplier = new DevExpress.XtraBars.BarButtonItem();
-            this.barManagerGridParent = new DevExpress.XtraBars.BarManager();
+            this.barManagerGridParent = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -56,6 +58,7 @@
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
             this.lblNoData = new DevExpress.XtraEditors.LabelControl();
             this.bwSaveSupplier = new System.ComponentModel.BackgroundWorker();
+            this.bwDeleteSupplier = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplierInfo)).BeginInit();
@@ -122,6 +125,7 @@
             // gcSupplierInfo
             // 
             this.gcSupplierInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcSupplierInfo.Controls.Add(this.btnDelete);
             this.gcSupplierInfo.Controls.Add(this.btnSave);
             this.gcSupplierInfo.Controls.Add(this.txtaddress);
             this.gcSupplierInfo.Controls.Add(this.labelControl2);
@@ -134,8 +138,19 @@
             this.gcSupplierInfo.Text = "Supplier\'s Information";
             this.gcSupplierInfo.Visible = false;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(251, 194);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(98, 41);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnSave
             // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(355, 194);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 41);
@@ -299,6 +314,12 @@
             this.bwSaveSupplier.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwSaveSupplier_DoWork);
             this.bwSaveSupplier.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwSaveSupplier_RunWorkerCompleted);
             // 
+            // bwDeleteSupplier
+            // 
+            this.bwDeleteSupplier.WorkerSupportsCancellation = true;
+            this.bwDeleteSupplier.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwDeleteSupplier_DoWork);
+            this.bwDeleteSupplier.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwDeleteSupplier_RunWorkerCompleted);
+            // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +381,8 @@
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraEditors.LabelControl lblNoData;
         private System.ComponentModel.BackgroundWorker bwSaveSupplier;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private System.ComponentModel.BackgroundWorker bwDeleteSupplier;
 
 
     }
