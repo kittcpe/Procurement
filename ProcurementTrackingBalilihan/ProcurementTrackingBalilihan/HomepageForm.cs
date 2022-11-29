@@ -118,6 +118,5 @@ namespace ProcurementTrackingBalilihan
                     fc.Activate();
             }
         }
-
     }
 }
