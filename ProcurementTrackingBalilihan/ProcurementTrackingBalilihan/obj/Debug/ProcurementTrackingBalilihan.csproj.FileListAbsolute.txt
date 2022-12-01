@@ -15,7 +15,6 @@ C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procureme
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.pdb
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.pdb
-C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.csprojResolveAssemblyReference.cache
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.LoginFormRedesigned.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.PurchaseForm.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.SupplierForm.resources
@@ -28,3 +27,4 @@ C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procureme
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.TrackItemForm.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.ChangeStatusForm.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.PrintForm.resources
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.PrintReport.resources
