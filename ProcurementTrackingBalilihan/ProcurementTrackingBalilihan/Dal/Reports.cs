@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace ProcurementTrackingBalilihan.Dal
 {
-    class Report
+    class Reports
     {
         private static string ConnectionString()
         {
@@ -17,7 +17,7 @@ namespace ProcurementTrackingBalilihan.Dal
 
         public static string loadreporterror;
         public static bool loadreportsuccessful = false;
-        public static DataTable loadreport()
+        public static DataTable loadreport(string _pr_no)
         {
             DataSet dt = new DataSet();
             using (MySqlConnection con = new MySqlConnection(ConnectionString()))
@@ -25,7 +25,7 @@ namespace ProcurementTrackingBalilihan.Dal
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT pl.id,pl.description,pl.`amount`,pl.`added_on`,pl.`status`,sl.`name` FROM `procurement_list` pl INNER JOIN `supplier_list` sl WHERE pl.`supplier` = sl.`id`;", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `purchase_order` po INNER JOIN `procurement_status` ps ON ps.`pr_no` = po.`procurement_no`WHERE ps.`pr_no`='" + _pr_no + "'", con);
                     //  cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);

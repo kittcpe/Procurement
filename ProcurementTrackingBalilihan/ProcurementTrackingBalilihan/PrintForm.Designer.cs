@@ -33,7 +33,7 @@
             this.dtReport = new DevExpress.XtraGrid.GridControl();
             this.gvReport = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.stock_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.property_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
             this.quantity = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,6 +41,8 @@
             this.total_cost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtprno = new DevExpress.XtraEditors.TextEdit();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SAMPLE_MEMO_NOTIF.WaitForm1), true, true);
+            this.bwReportList = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtprno.Properties)).BeginInit();
@@ -75,7 +77,7 @@
             // 
             this.gvReport.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.id,
-            this.stock_no,
+            this.property_no,
             this.unit,
             this.description,
             this.quantity,
@@ -96,13 +98,13 @@
             this.id.FieldName = "id";
             this.id.Name = "id";
             // 
-            // stock_no
+            // property_no
             // 
-            this.stock_no.Caption = "Stock/Property No.";
-            this.stock_no.FieldName = "stock_no";
-            this.stock_no.Name = "stock_no";
-            this.stock_no.Visible = true;
-            this.stock_no.VisibleIndex = 0;
+            this.property_no.Caption = "Stock/Property No.";
+            this.property_no.FieldName = "property_no";
+            this.property_no.Name = "property_no";
+            this.property_no.Visible = true;
+            this.property_no.VisibleIndex = 0;
             // 
             // unit
             // 
@@ -161,6 +163,12 @@
             this.btnLoad.Text = "Load";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // bwReportList
+            // 
+            this.bwReportList.WorkerSupportsCancellation = true;
+            this.bwReportList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwReportList_DoWork);
+            this.bwReportList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwReportList_RunWorkerCompleted);
+            // 
             // PrintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +193,7 @@
         private DevExpress.XtraGrid.GridControl dtReport;
         private DevExpress.XtraGrid.Views.Grid.GridView gvReport;
         private DevExpress.XtraGrid.Columns.GridColumn id;
-        private DevExpress.XtraGrid.Columns.GridColumn stock_no;
+        private DevExpress.XtraGrid.Columns.GridColumn property_no;
         private DevExpress.XtraGrid.Columns.GridColumn unit;
         private DevExpress.XtraGrid.Columns.GridColumn description;
         private DevExpress.XtraGrid.Columns.GridColumn quantity;
@@ -193,5 +201,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn total_cost;
         private DevExpress.XtraEditors.TextEdit txtprno;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private System.ComponentModel.BackgroundWorker bwReportList;
     }
 }
