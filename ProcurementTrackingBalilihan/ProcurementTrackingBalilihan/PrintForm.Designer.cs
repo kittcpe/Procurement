@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintForm));
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.dtReport = new DevExpress.XtraGrid.GridControl();
             this.gvReport = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,13 +39,18 @@
             this.quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unit_cost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.total_cost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtprno = new DevExpress.XtraEditors.TextEdit();
+            this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtprno.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnprint
             // 
-            this.btnprint.Location = new System.Drawing.Point(497, 369);
+            this.btnprint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnprint.Image = ((System.Drawing.Image)(resources.GetObject("btnprint.Image")));
+            this.btnprint.Location = new System.Drawing.Point(497, 12);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(138, 48);
             this.btnprint.TabIndex = 0;
@@ -57,10 +63,10 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtReport.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtReport.Location = new System.Drawing.Point(12, 44);
+            this.dtReport.Location = new System.Drawing.Point(12, 73);
             this.dtReport.MainView = this.gvReport;
             this.dtReport.Name = "dtReport";
-            this.dtReport.Size = new System.Drawing.Size(623, 320);
+            this.dtReport.Size = new System.Drawing.Size(623, 344);
             this.dtReport.TabIndex = 262;
             this.dtReport.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvReport});
@@ -138,17 +144,37 @@
             this.total_cost.Visible = true;
             this.total_cost.VisibleIndex = 5;
             // 
+            // txtprno
+            // 
+            this.txtprno.Location = new System.Drawing.Point(12, 26);
+            this.txtprno.Name = "txtprno";
+            this.txtprno.Size = new System.Drawing.Size(163, 20);
+            this.txtprno.TabIndex = 263;
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
+            this.btnLoad.Location = new System.Drawing.Point(181, 12);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(138, 48);
+            this.btnLoad.TabIndex = 264;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // PrintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 429);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.txtprno);
             this.Controls.Add(this.dtReport);
             this.Controls.Add(this.btnprint);
             this.Name = "PrintForm";
             this.Text = "PrintForm";
             ((System.ComponentModel.ISupportInitialize)(this.dtReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtprno.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,5 +191,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn quantity;
         private DevExpress.XtraGrid.Columns.GridColumn unit_cost;
         private DevExpress.XtraGrid.Columns.GridColumn total_cost;
+        private DevExpress.XtraEditors.TextEdit txtprno;
+        private DevExpress.XtraEditors.SimpleButton btnLoad;
     }
 }

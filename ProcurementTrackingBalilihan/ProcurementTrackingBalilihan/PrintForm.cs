@@ -21,8 +21,12 @@ namespace ProcurementTrackingBalilihan
         private void btnprint_Click(object sender, EventArgs e)
         {
             PrintReport pr = new PrintReport();
-            pr.lblno.Text = "gwapo ko";
             pr.ShowPreviewDialog();
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

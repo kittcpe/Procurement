@@ -113,10 +113,6 @@ namespace ProcurementTrackingBalilihan
         public static bool PrintFormIsOpen = false;
         private void btnPrint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //PrintForm pf = new PrintForm();
-            //pf.ShowDialog();
-            //PrintReport p = new PrintReport();
-            //p.ShowPreviewDialog();
             if (!PrintFormIsOpen)
             {
                 PrintFormIsOpen = true;
