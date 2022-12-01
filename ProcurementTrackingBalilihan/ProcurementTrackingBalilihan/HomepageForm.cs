@@ -101,7 +101,7 @@ namespace ProcurementTrackingBalilihan
                 Form fc = Application.OpenForms["TrackItemForm"];
                 if (fc == null)
                 {
-                    PurchaseForm a1 = new PurchaseForm();
+                    TrackItemForm a1 = new TrackItemForm();
                     a1.MdiParent = this;
                     a1.Show();
                 }
@@ -110,12 +110,33 @@ namespace ProcurementTrackingBalilihan
             }
         }
 
+        public static bool PrintFormIsOpen = false;
         private void btnPrint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PrintForm pf = new PrintForm();
-            pf.ShowDialog();
+            //PrintForm pf = new PrintForm();
+            //pf.ShowDialog();
             //PrintReport p = new PrintReport();
             //p.ShowPreviewDialog();
+            if (!PrintFormIsOpen)
+            {
+                PrintFormIsOpen = true;
+                PrintForm pf = new PrintForm();
+                pf.MdiParent = this;
+                pf.WindowState = FormWindowState.Maximized;
+                pf.Show();
+            }
+            else
+            {
+                Form fc = Application.OpenForms["PrintForm"];
+                if (fc == null)
+                {
+                    PrintForm a1 = new PrintForm();
+                    a1.MdiParent = this;
+                    a1.Show();
+                }
+                else
+                    fc.Activate();
+            }
         }
 
         private void HomepageForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -129,5 +150,6 @@ namespace ProcurementTrackingBalilihan
                 e.Cancel = true;
             }
         }
+
     }
 }
