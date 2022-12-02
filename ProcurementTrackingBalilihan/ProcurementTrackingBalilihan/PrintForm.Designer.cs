@@ -89,6 +89,7 @@
             this.gvReport.OptionsFind.AlwaysVisible = true;
             this.gvReport.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvReport.OptionsView.RowAutoHeight = true;
+            this.gvReport.OptionsView.ShowFooter = true;
             this.gvReport.OptionsView.ShowGroupPanel = false;
             this.gvReport.OptionsView.ShowIndicator = false;
             // 
@@ -133,6 +134,8 @@
             // unit_cost
             // 
             this.unit_cost.Caption = "Unit Cost";
+            this.unit_cost.DisplayFormat.FormatString = "n2";
+            this.unit_cost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.unit_cost.FieldName = "unit_cost";
             this.unit_cost.Name = "unit_cost";
             this.unit_cost.Visible = true;
@@ -141,8 +144,12 @@
             // total_cost
             // 
             this.total_cost.Caption = "Total Cost";
+            this.total_cost.DisplayFormat.FormatString = "n2";
+            this.total_cost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.total_cost.FieldName = "total_cost";
             this.total_cost.Name = "total_cost";
+            this.total_cost.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total_cost", "Total={0:0.##}")});
             this.total_cost.Visible = true;
             this.total_cost.VisibleIndex = 5;
             // 
