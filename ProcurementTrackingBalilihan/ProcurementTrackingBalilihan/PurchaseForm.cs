@@ -252,6 +252,7 @@ namespace ProcurementTrackingBalilihan
             txtQuantity.Text = string.Empty;
             txtUnitCost.Text = string.Empty;
             lblProcurementNo.Text = string.Empty;
+            dtPurchase.Enabled = true;
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -306,6 +307,7 @@ namespace ProcurementTrackingBalilihan
             lblProcurementNo.Enabled = false;
             btnAddItem.Enabled = false;
             btnDeleteItem.Enabled = false;
+            dtPurchase.Enabled = false;
 
             if (gvSupplier.SelectedRowsCount > 0)
             {
@@ -319,6 +321,28 @@ namespace ProcurementTrackingBalilihan
 
             
 
+        }
+
+        private void btnposting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Purchase.UpdateStatus(proc_no, "Posting");
+            clearfields();
+
+        }
+        string proc_no;
+        private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (gvSupplier.SelectedRowsCount > 0)
+            {
+                proc_no = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "pr_no").ToString();
+            }
+        }
+
+        private void btnprebid_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Purchase.UpdateStatus(proc_no, "Pre-Bidding");
+            clearfields();
         }
 
 

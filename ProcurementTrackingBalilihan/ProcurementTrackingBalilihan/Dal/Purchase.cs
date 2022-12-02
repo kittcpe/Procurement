@@ -123,14 +123,14 @@ namespace ProcurementTrackingBalilihan.Dal
                     
                     if (status == "Posting")
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = CURRENT_TIMESTAMP  WHERE id ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = CURRENT_TIMESTAMP  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
                     }
                     else
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = CURRENT_TIMESTAMP  WHERE id ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = CURRENT_TIMESTAMP  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();

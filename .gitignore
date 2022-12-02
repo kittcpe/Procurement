@@ -1,0 +1,11 @@
+
+*.exe
+*.cache
+*.Cache
+*.txt
+*.cache
+*.suo
+*.pdb
+*.licx
+*.licenses
+*.manifest

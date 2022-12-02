@@ -200,6 +200,7 @@
             this.gvSupplier.OptionsView.RowAutoHeight = true;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
             this.gvSupplier.OptionsView.ShowIndicator = false;
+            this.gvSupplier.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
             // 
             // id
             // 
@@ -784,6 +785,7 @@
             this.btnposting.Id = 9;
             this.btnposting.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnposting.LargeGlyph")));
             this.btnposting.Name = "btnposting";
+            this.btnposting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnposting_ItemClick);
             // 
             // btnprebid
             // 
@@ -792,6 +794,7 @@
             this.btnprebid.Id = 10;
             this.btnprebid.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnprebid.LargeGlyph")));
             this.btnprebid.Name = "btnprebid";
+            this.btnprebid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnprebid_ItemClick);
             // 
             // btnDetails
             // 
@@ -851,7 +854,7 @@
             this.gcProcDetails.Controls.Add(this.txtPropertyNo);
             this.gcProcDetails.Controls.Add(this.labelControl13);
             this.gcProcDetails.Controls.Add(this.dtItemDetails);
-            this.gcProcDetails.Location = new System.Drawing.Point(23, 12);
+            this.gcProcDetails.Location = new System.Drawing.Point(179, 91);
             this.gcProcDetails.Name = "gcProcDetails";
             this.gcProcDetails.Size = new System.Drawing.Size(939, 555);
             this.gcProcDetails.TabIndex = 295;
