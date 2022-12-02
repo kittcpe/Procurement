@@ -51,6 +51,8 @@ namespace ProcurementTrackingBalilihan
         private void btnprint_Click(object sender, EventArgs e)
         {
             PrintReport pr = new PrintReport();
+            pr.DataSource = reportdata;
+            pr.DataMember = "CustomSQLQuery1";
             pr.ShowPreviewDialog();
         }
 
