@@ -930,6 +930,8 @@
             this.txtUnitCost.Name = "txtUnitCost";
             this.txtUnitCost.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnitCost.Properties.Appearance.Options.UseFont = true;
+            this.txtUnitCost.Properties.Mask.EditMask = "n2";
+            this.txtUnitCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtUnitCost.Size = new System.Drawing.Size(233, 22);
             this.txtUnitCost.TabIndex = 304;
             // 
@@ -950,6 +952,8 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity.Properties.Appearance.Options.UseFont = true;
+            this.txtQuantity.Properties.Mask.EditMask = "d";
+            this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtQuantity.Size = new System.Drawing.Size(233, 22);
             this.txtQuantity.TabIndex = 302;
             // 
@@ -970,7 +974,7 @@
             this.txtItemDescription.Name = "txtItemDescription";
             this.txtItemDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemDescription.Properties.Appearance.Options.UseFont = true;
-            this.txtItemDescription.Size = new System.Drawing.Size(488, 91);
+            this.txtItemDescription.Size = new System.Drawing.Size(486, 79);
             this.txtItemDescription.TabIndex = 300;
             // 
             // labelControl16
@@ -1020,6 +1024,8 @@
             this.txtPropertyNo.Name = "txtPropertyNo";
             this.txtPropertyNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPropertyNo.Properties.Appearance.Options.UseFont = true;
+            this.txtPropertyNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPropertyNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPropertyNo.Size = new System.Drawing.Size(158, 22);
             this.txtPropertyNo.TabIndex = 296;
             // 

@@ -130,7 +130,6 @@ namespace ProcurementTrackingBalilihan
             {
                 if (!bwPurchase.IsBusy)
                 {bwPurchase.RunWorkerAsync();}
-               
             }
 
             }
@@ -150,6 +149,7 @@ namespace ProcurementTrackingBalilihan
                 MessageBox.Show("Procurement Saved Successfuly \nPress 'OK' to proceed");
                 lblProcurementNo.Text = txtProcNo.Text;
                 gcProcDetails.Visible = true;
+                gcBox(true);
                 ControlTextBoxPanel(false);
                 
             }
@@ -275,8 +275,9 @@ namespace ProcurementTrackingBalilihan
             string id = gvItemDetails.GetRowCellValue(gvItemDetails.FocusedRowHandle, "procurement_no").ToString();
 
         }
-        DataTable ItemList = new DataTable();
+      
         private void getItemDetails() {
+            DataTable ItemList = new DataTable();
             ItemList = Purchase.GetItemDetails(lblProcurementNo.Text);
             if (Purchase.getdetailssuccessfull)
             {
@@ -298,16 +299,8 @@ namespace ProcurementTrackingBalilihan
             txtQuantity.Text = string.Empty;
             txtUnitCost.Text = string.Empty;
             lblProcurementNo.Text = string.Empty;
-
-            txtPropertyNo.Enabled = false;
-            txtUnit.Enabled = false;
-            txtItemDescription.Enabled = false;
-            txtQuantity.Enabled = false;
-            txtUnitCost.Enabled = false;
-            lblProcurementNo.Enabled = false;
-            btnAddItem.Enabled = false;
-            btnDeleteItem.Enabled = false;
-            dtPurchase.Enabled = false;
+            gcBox(false);
+            
 
             if (gvSupplier.SelectedRowsCount > 0)
             {
@@ -321,6 +314,19 @@ namespace ProcurementTrackingBalilihan
 
             
 
+        }
+        private void gcBox(bool ctrl)
+        {
+            txtPropertyNo.Enabled = ctrl;
+            txtUnit.Enabled = ctrl;
+            txtItemDescription.Enabled = ctrl;
+            txtQuantity.Enabled = ctrl;
+            txtUnitCost.Enabled = ctrl;
+            lblProcurementNo.Enabled = ctrl;
+            btnAddItem.Enabled = ctrl;
+            btnDeleteItem.Enabled = ctrl;
+            dtPurchase.Enabled = ctrl;
+        
         }
 
         private void btnposting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
