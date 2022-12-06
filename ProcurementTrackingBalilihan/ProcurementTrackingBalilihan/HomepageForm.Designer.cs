@@ -180,7 +180,7 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "HomepageForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomepageForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomepageForm_FormClosed);
             this.Shown += new System.EventHandler(this.HomepageForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();

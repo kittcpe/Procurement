@@ -48,9 +48,13 @@ namespace ProcurementTrackingBalilihan
         }
         #endregion
 
+        DataTable detailstb;
         private void btnprint_Click(object sender, EventArgs e)
         {
             PrintReport pr = new PrintReport();
+            pr.lblprno.Text = txtprno.Text;
+            pr.lblpurpose.Text = detailstb.Rows[0]["purpose"].ToString();
+            pr.lblname.Text = detailstb.Rows[0]["end_user"].ToString().ToUpper();
             pr.DataSource = reportdata;
             pr.DataMember = "CustomSQLQuery1";
             pr.ShowPreviewDialog();
@@ -69,13 +73,19 @@ namespace ProcurementTrackingBalilihan
         private void bwReportList_DoWork(object sender, DoWorkEventArgs e)
         {
             reportdata = Reports.loadreport(txtprno.Text);
+            detailstb = Reports.purposestring(txtprno.Text);
             bwReportList.CancelAsync();
         }
 
         private void bwReportList_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HideLoading();
-            dtReport.DataSource = reportdata;
+            if (Reports.loadreportsuccessful)
+                dtReport.DataSource = reportdata;
+            else
+                MessageBox.Show(Reports.loadreporterror);
+            if (!Reports.purposestringsuccessful)
+                MessageBox.Show(Reports.purposestringerror);
         }
     }
 }

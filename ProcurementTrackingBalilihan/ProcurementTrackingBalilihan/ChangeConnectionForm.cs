@@ -56,8 +56,8 @@ namespace ProcurementTrackingBalilihan
                     tw.WriteLine("Server = "+servertxt.Text+"; Database = "+databasetxt.Text+"; Uid="+usertxt.Text+"; Pwd="+passwordtxt.Text+"; Port="+porttxt.Text+"");
                 }
 
-                MessageBox.Show("Changes to Connection String Applied\nProgram will close.\n\nPlease Reopen the Program Again");
-                Application.Exit();
+                MessageBox.Show("Changes to Connection String Applied");
+                Application.Restart();
             }
         }
     }

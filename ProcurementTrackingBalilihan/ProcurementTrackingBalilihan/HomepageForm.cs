@@ -135,17 +135,9 @@ namespace ProcurementTrackingBalilihan
             }
         }
 
-        private void HomepageForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void HomepageForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult dia = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dia == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else {
-                e.Cancel = true;
-            }
+            Application.Exit();
         }
-
     }
 }

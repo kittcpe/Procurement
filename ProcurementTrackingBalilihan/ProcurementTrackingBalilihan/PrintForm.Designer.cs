@@ -149,7 +149,7 @@
             this.total_cost.FieldName = "total_cost";
             this.total_cost.Name = "total_cost";
             this.total_cost.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total_cost", "Total={0:0.##}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total_cost", "Total=P{0:0.##}")});
             this.total_cost.Visible = true;
             this.total_cost.VisibleIndex = 5;
             // 

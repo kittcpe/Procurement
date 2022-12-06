@@ -41,6 +41,32 @@ namespace ProcurementTrackingBalilihan.Dal
             }
         }
 
+        public static string purposestringerror;
+        public static bool purposestringsuccessful = false;
+        public static DataTable purposestring(string _pr_no)
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+            {
+                try
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT purpose,end_user FROM `procurement_status` WHERE pr_no='"+_pr_no+"'", con);
+                    //  cmd.CommandType = CommandType.StoredProcedure;
+                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    adp.Fill(dt);
+                    con.Close();
+                    purposestringsuccessful = true;
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    purposestringerror = ex.Message + "\n Function: Get Supplier";
+                    return null;
+                }
+            }
+        }
+
 
     }
 }
