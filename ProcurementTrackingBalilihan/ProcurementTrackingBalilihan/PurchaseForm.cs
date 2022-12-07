@@ -221,7 +221,21 @@ namespace ProcurementTrackingBalilihan
 
         private void btnEditProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnMode.Text = "Save"; 
+            btnMode.Text = "Save";
+            txtProcNo.Enabled = false;
+            txtProcNo.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "pr_no").ToString();
+            txtDescription.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "description").ToString();
+            txtEnduser.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "end_user").ToString();
+            txtPRmode.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "mode_of_pr").ToString();
+            txtABC.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "abc").ToString();
+            dtpAward.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "award").ToString();
+            dtpBids.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "opening_of_bids").ToString();
+            dtpDelivery.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "delivery").ToString();
+            dtpEval.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "detailed_bid_eval").ToString();
+            dtpNTP.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "ntp").ToString();
+            dtpPO.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "po").ToString();
+            txtPurpose.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "purpose").ToString();
+
 
         }
         private void ControlTextBoxPanel(bool operation) {

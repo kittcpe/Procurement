@@ -464,6 +464,8 @@
             this.txtABC.Properties.Appearance.Options.UseFont = true;
             this.txtABC.Properties.EditFormat.FormatString = "n2";
             this.txtABC.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtABC.Properties.Mask.EditMask = "n2";
+            this.txtABC.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtABC.Size = new System.Drawing.Size(361, 22);
             this.txtABC.TabIndex = 271;
             // 
@@ -521,6 +523,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpBids.Properties.CalendarTimeProperties.EditFormat.FormatString = "yyyy:mm:dd";
             this.dtpBids.Properties.CalendarTimeProperties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtpBids.Properties.DisplayFormat.FormatString = "D";
+            this.dtpBids.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtpBids.Properties.Mask.EditMask = "D";
             this.dtpBids.Size = new System.Drawing.Size(297, 22);
             this.dtpBids.TabIndex = 275;
             // 
@@ -854,7 +859,7 @@
             this.gcProcDetails.Controls.Add(this.txtPropertyNo);
             this.gcProcDetails.Controls.Add(this.labelControl13);
             this.gcProcDetails.Controls.Add(this.dtItemDetails);
-            this.gcProcDetails.Location = new System.Drawing.Point(179, 91);
+            this.gcProcDetails.Location = new System.Drawing.Point(179, 69);
             this.gcProcDetails.Name = "gcProcDetails";
             this.gcProcDetails.Size = new System.Drawing.Size(939, 555);
             this.gcProcDetails.TabIndex = 295;
