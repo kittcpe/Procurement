@@ -196,18 +196,32 @@ namespace ProcurementTrackingBalilihan
         {
             btnMode.Text = "Save";
             txtProcNo.Enabled = false;
+
+            //txtPendingReason.Text = pendingdata.Rows[0]["remarks"].ToString();
             txtProcNo.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
+            //txtDescription.Text = ItemList.Rows[gvPurchase.FocusedRowHandle]["description"].ToString();
             txtDescription.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "description").ToString();
+
             txtEnduser.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "end_user").ToString();
             txtPRmode.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "mode_of_pr").ToString();
             txtABC.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "abc").ToString();
-            dtpAward.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "award").ToString();
-            dtpBids.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "opening_of_bids").ToString();
-            dtpDelivery.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "delivery").ToString();
-            dtpEval.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "detailed_bid_eval").ToString();
-            dtpNTP.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "ntp").ToString();
-            dtpPO.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "po").ToString();
             txtPurpose.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "purpose").ToString();
+
+           //dates
+            DateTime dtAward = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "award").ToString());
+            DateTime dtBids = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "opening_of_bids").ToString());
+            DateTime dtDelivery = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "delivery").ToString());
+            DateTime dtEval = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "detailed_bid_eval").ToString());
+            DateTime dtntp = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "ntp").ToString());
+            DateTime dtpo = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "po").ToString());
+
+            dtpAward.Text = dtAward.ToShortDateString();
+            dtpBids.Text = dtBids.ToShortDateString();
+            dtpDelivery.Text = dtDelivery.ToShortDateString();
+            dtpEval.Text = dtEval.ToShortDateString();
+            dtpNTP.Text = dtntp.ToShortDateString();
+            dtpPO.Text = dtpo.ToShortDateString();
+       
 
 
         }
@@ -279,9 +293,9 @@ namespace ProcurementTrackingBalilihan
             else
                 MessageBox.Show(Purchase.DeleteErrorMessage);
         }
-      
+        DataTable ItemList = new DataTable();
         private void getItemDetails() {
-            DataTable ItemList = new DataTable();
+            
             ItemList = Purchase.GetItemDetails(lblProcurementNo.Text);
             if (Purchase.getdetailssuccessfull)
             {
