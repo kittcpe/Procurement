@@ -81,7 +81,7 @@ namespace ProcurementTrackingBalilihan.Dal
                         }
                        else
                         {
-                            MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET" + 
+                            MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET " + 
                             "description  = '" +  description + "'," + 
                             "end_user = '" + enduser + "'," + 
                             "mode_of_pr = '" +  mode_of_pr + "'," + 
@@ -92,9 +92,11 @@ namespace ProcurementTrackingBalilihan.Dal
                             "po = STR_TO_DATE('" + po + "', '%m/%d/%Y')," +
                             "ntp = STR_TO_DATE('" + ntp + "', '%m/%d/%Y')," +
                             "delivery = STR_TO_DATE('" + delivery + "', '%m/%d/%Y')," +
-                            "purpose = " + purpose +
-                             "WHERE pr_no ='" + PRno + "' ", con);
+                            "purpose = '" + purpose +
+                             "' WHERE pr_no ='" + PRno + "'", con);
+                            cmd.ExecuteNonQuery();
                             isSaveSuccessfully = true;
+                            con.Close();
 
                         }
 
@@ -148,7 +150,7 @@ namespace ProcurementTrackingBalilihan.Dal
         }
         public static bool ItemSaveSuccessfuly = false;
         public static string ItemSaveErrorMessage;
-        public static void AddSaveItem(string property_no, string unit, string description, float quantity, float unit_cost, string procurement_no, string mode)
+        public static void AddSaveItem(string property_no, string unit, string description, float quantity, float unit_cost, string procurement_no,string supplier, string mode)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString()))
             {
@@ -159,14 +161,15 @@ namespace ProcurementTrackingBalilihan.Dal
                     if (mode == "Add")
                     {
 
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO purchase_order(property_no,unit,description,quantity,unit_cost,total_cost,procurement_no) VALUES('"
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO purchase_order(property_no,unit,description,quantity,unit_cost,total_cost,procurement_no,supplier) VALUES('"
                             + property_no + "','"
                             + unit + "','"
                             + description + "',"
                             + quantity + "," 
                             + unit_cost+ ","
                             + quantity* unit_cost + ",'"
-                            + procurement_no + "')"
+                            + procurement_no + "','"
+                            + supplier +"')"
                             , con);
                             cmd.ExecuteNonQuery();
                             ItemSaveSuccessfuly = true;
@@ -222,23 +225,39 @@ namespace ProcurementTrackingBalilihan.Dal
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("DELETE `purchase_order` WHERE procurement_no ='" + id + "' ", con);
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM `purchase_order` WHERE property_no ='" + id + "';", con);
                     cmd.ExecuteNonQuery();
-                    isUpdateSuccessfully = true;
+                    isDeletedSuccessfully = true;
                     con.Close();
                 }
                 catch (Exception ex)
                 {
-                    UpdateErrorMessage = ex.Message + "\n Function: Delete Item";
+                    DeleteErrorMessage = ex.Message + "\n Function: Delete Item";
                 }
-
-
             }
-
         }
 
-
-        
-
+        public static bool DeleteRecordSuccessful = false;
+        public static string DeleteRecordErrorMessage;
+        public static void DeleteRecord(string id)
+        {
+            using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+            {
+                try
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM `procurement_status` WHERE pr_no ='" + id + "';", con);
+                    cmd.ExecuteNonQuery();
+                    MySqlCommand cmd1 = new MySqlCommand("DELETE FROM `purchase_order` WHERE procurement_no ='" + id + "';", con);
+                    cmd1.ExecuteNonQuery();
+                    DeleteRecordSuccessful = true;
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    DeleteRecordErrorMessage = ex.Message + "\n Function: Delete Item";
+                }
+            }
+        }
     }
 }

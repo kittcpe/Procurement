@@ -43,6 +43,7 @@
             this.btnSuppliers = new DevExpress.XtraBars.BarButtonItem();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -61,12 +62,13 @@
             this.barButtonItem1,
             this.btnPrint});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 4;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHomepage});
-            this.ribbon.Size = new System.Drawing.Size(1095, 144);
+            this.ribbon.Size = new System.Drawing.Size(1277, 155);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnSupplier
@@ -142,10 +144,11 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 514);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 640);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1095, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1277, 31);
             // 
             // btnSuppliers
             // 
@@ -166,16 +169,17 @@
             // 
             // HomepageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = global::ProcurementTrackingBalilihan.Properties.Resources.bg_photo;
-            this.ClientSize = new System.Drawing.Size(1095, 545);
+            this.ClientSize = new System.Drawing.Size(1277, 671);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HomepageForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
@@ -205,5 +209,6 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnPrint;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

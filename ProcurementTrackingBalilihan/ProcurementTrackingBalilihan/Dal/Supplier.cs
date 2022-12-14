@@ -15,6 +15,8 @@ namespace ProcurementTrackingBalilihan.Dal
         {
             return PublicVariables.ServerConnectionString;
         }
+
+        public static bool getsupplierlistsuccessful = false;
         public static string errormessage;
         public static DataTable GetSupplierList()
         {
@@ -29,6 +31,7 @@ namespace ProcurementTrackingBalilihan.Dal
                   //  cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
+                    getsupplierlistsuccessful = true;
                     con.Close();
                     return dt.Tables[0];
                 }

@@ -51,19 +51,42 @@ namespace ProcurementTrackingBalilihan
         private void PurchaseForm_Shown(object sender, EventArgs e)
         {
             // load procurement list
-            if (!bwViewSupplierList.IsBusy) {
-                ShowLoading("Loading Supplier");
+            if (!bwViewSupplierList.IsBusy)
+            {
+                ShowLoading("Loading Suppliers List");
                 bwViewSupplierList.RunWorkerAsync();
-            
             }
+
             if (!bwViewProcurementList.IsBusy)
             {
                 ShowLoading("Loading Procurement List");
                 bwViewProcurementList.RunWorkerAsync();
-            
             }
 
         }
+
+        DataTable supplierdata = new DataTable();
+        private void bwViewSupplierList_DoWork(object sender, DoWorkEventArgs e)
+        {
+            supplierdata = Supplier.GetSupplierList();
+            bwViewSupplierList.CancelAsync();
+        }
+        private void bwViewSupplierList_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            HideLoading();
+            if (Supplier.getsupplierlistsuccessful)
+            {
+                cbesupplier.DataSource = supplierdata;
+                cbesupplier.DisplayMember = "name";
+                cbesupplier.ValueMember = "id";
+            }
+            else
+            {
+                MessageBox.Show(Purchase.gettrackitemerror);
+            }
+
+        }
+
         DataTable procurementdata = new DataTable();
         private void bwViewProcurementList_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -82,38 +105,6 @@ namespace ProcurementTrackingBalilihan
                 MessageBox.Show(Purchase.gettrackitemerror);
             }
           
-        }
-
-
-
-        DataTable SupplierList = new DataTable();
-        private void bwViewSupplierList_DoWork(object sender, DoWorkEventArgs e)
-        {
-            SupplierList = Supplier.GetSupplierList();
-            bwViewSupplierList.CancelAsync();
-
-        }
-
-        private void bwViewSupplierList_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-                HideLoading();
-
-        }
-
-
-
-        private void PurchaseForm_Shown_1(object sender, EventArgs e)
-        {
-            if (!bwViewProcurementList.IsBusy)
-            {
-                ShowLoading("Loading data . . .");
-                bwViewProcurementList.RunWorkerAsync();
-            }
-            if (!bwViewSupplierList.IsBusy)
-            {
-                ShowLoading("Loading data . . .");
-                bwViewSupplierList.RunWorkerAsync();
-            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -158,8 +149,6 @@ namespace ProcurementTrackingBalilihan
                 MessageBox.Show("Save unsuccessful!" + Purchase.SaveErrorMessage);
             }
             clearfields();
-            
-
         }
         private void clearfields() {
             txtProcNo.Text = string.Empty;
@@ -183,30 +172,14 @@ namespace ProcurementTrackingBalilihan
             }
         }
 
-        public static string sup_id;
-        private void dtPurchase_DoubleClick(object sender, EventArgs e)
-        {
-                // show details
-        }
-
-        private void dtPurchase_MouseEnter(object sender, EventArgs e)
-        {
-            if (ChangeStatusForm.isrefresh)
-            {
-                clearfields();
-                ChangeStatusForm.isrefresh = false;
-            }
-        }
-
-
         private void dtPurchase_MouseDown(object sender, MouseEventArgs e)
         {
             try
             {
                 if (e.Button == MouseButtons.Right)
                 {
-                    var rowH = gvSupplier.FocusedRowHandle;
-                    var focusRowView = (DataRowView)gvSupplier.GetFocusedRow();
+                    var rowH = gvPurchase.FocusedRowHandle;
+                    var focusRowView = (DataRowView)gvPurchase.GetFocusedRow();
                     popupMenuGridParent.ShowPopup(barManagerGridProc, new Point(MousePosition.X, MousePosition.Y));
                 }
             }
@@ -223,18 +196,18 @@ namespace ProcurementTrackingBalilihan
         {
             btnMode.Text = "Save";
             txtProcNo.Enabled = false;
-            txtProcNo.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "pr_no").ToString();
-            txtDescription.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "description").ToString();
-            txtEnduser.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "end_user").ToString();
-            txtPRmode.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "mode_of_pr").ToString();
-            txtABC.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "abc").ToString();
-            dtpAward.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "award").ToString();
-            dtpBids.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "opening_of_bids").ToString();
-            dtpDelivery.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "delivery").ToString();
-            dtpEval.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "detailed_bid_eval").ToString();
-            dtpNTP.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "ntp").ToString();
-            dtpPO.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "po").ToString();
-            txtPurpose.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "purpose").ToString();
+            txtProcNo.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
+            txtDescription.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "description").ToString();
+            txtEnduser.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "end_user").ToString();
+            txtPRmode.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "mode_of_pr").ToString();
+            txtABC.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "abc").ToString();
+            dtpAward.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "award").ToString();
+            dtpBids.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "opening_of_bids").ToString();
+            dtpDelivery.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "delivery").ToString();
+            dtpEval.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "detailed_bid_eval").ToString();
+            dtpNTP.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "ntp").ToString();
+            dtpPO.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "po").ToString();
+            txtPurpose.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "purpose").ToString();
 
 
         }
@@ -253,7 +226,6 @@ namespace ProcurementTrackingBalilihan
             btnAddProc.Enabled = operation;
             cmbMode.Enabled = operation;
             txtPurpose.Enabled = operation;
-        
         }
 
         private void btnSaveExit_Click(object sender, EventArgs e)
@@ -271,23 +243,41 @@ namespace ProcurementTrackingBalilihan
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            Purchase.AddSaveItem(txtPropertyNo.Text, txtUnit.Text, txtItemDescription.Text, float.Parse(txtQuantity.Text), float.Parse(txtUnitCost.Text), lblProcurementNo.Text, "Add");
-            if (Purchase.ItemSaveSuccessfuly)
-            {
-                MessageBox.Show("Item Added!");
-                getItemDetails();
-            }
+            if (txtPropertyNo.Text == "" || txtUnit.Text == "" || txtQuantity.Text == "" || txtUnitCost.Text == "" || txtItemDescription.Text == "")
+                MessageBox.Show("Please Complete Inputs...");
             else
             {
-                MessageBox.Show(Purchase.ItemSaveErrorMessage);
+                Purchase.AddSaveItem(txtPropertyNo.Text, txtUnit.Text, txtItemDescription.Text, float.Parse(txtQuantity.Text), float.Parse(txtUnitCost.Text), lblProcurementNo.Text,cbesupplier.GetItemText(cbesupplier.SelectedItem) , "Add");
+
+                if (Purchase.ItemSaveSuccessfuly)
+                {
+                    MessageBox.Show("Item Added!");
+                    txtPropertyNo.Text = null;
+                    txtQuantity.Text = null;
+                    txtUnit.Text = null;
+                    txtUnitCost.Text = null;
+                    txtItemDescription.Text = null;
+                    getItemDetails();
+                }
+                else
+                {
+                    MessageBox.Show(Purchase.ItemSaveErrorMessage);
+                }
             }
 
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            string id = gvItemDetails.GetRowCellValue(gvItemDetails.FocusedRowHandle, "procurement_no").ToString();
-
+            string id = gvItemDetails.GetRowCellValue(gvItemDetails.FocusedRowHandle, "property_no").ToString();
+            Purchase.DeleteItem(id);
+            if (Purchase.isDeletedSuccessfully)
+            {
+                MessageBox.Show("Item Deleted");
+                getItemDetails();
+            }
+            else
+                MessageBox.Show(Purchase.DeleteErrorMessage);
         }
       
         private void getItemDetails() {
@@ -296,13 +286,11 @@ namespace ProcurementTrackingBalilihan
             if (Purchase.getdetailssuccessfull)
             {
                 dtItemDetails.DataSource = ItemList;
-
             }
             else
             {
                 MessageBox.Show(Purchase.getitemerror);
             }
-        
         }
 
         private void btnDetails_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -314,20 +302,14 @@ namespace ProcurementTrackingBalilihan
             txtUnitCost.Text = string.Empty;
             lblProcurementNo.Text = string.Empty;
             gcBox(false);
-            
 
-            if (gvSupplier.SelectedRowsCount > 0)
+            if (gvPurchase.SelectedRowsCount > 0)
             {
-                lblProcurementNo.Text = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "pr_no").ToString();
+                lblProcurementNo.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
                 getItemDetails();
                 gcProcDetails.Visible = true;
                 ControlTextBoxPanel(false);
             }
-
-           
-
-            
-
         }
         private void gcBox(bool ctrl)
         {
@@ -340,12 +322,11 @@ namespace ProcurementTrackingBalilihan
             btnAddItem.Enabled = ctrl;
             btnDeleteItem.Enabled = ctrl;
             dtPurchase.Enabled = ctrl;
-        
+            cbesupplier.Enabled = ctrl;
         }
 
         private void btnposting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             Purchase.UpdateStatus(proc_no, "Posting");
             clearfields();
 
@@ -353,9 +334,9 @@ namespace ProcurementTrackingBalilihan
         string proc_no;
         private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (gvSupplier.SelectedRowsCount > 0)
+            if (gvPurchase.SelectedRowsCount > 0)
             {
-                proc_no = gvSupplier.GetRowCellValue(gvSupplier.FocusedRowHandle, "pr_no").ToString();
+                proc_no = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
             }
         }
 
@@ -365,8 +346,16 @@ namespace ProcurementTrackingBalilihan
             clearfields();
         }
 
-
-
-
+        private void btndelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Purchase.DeleteRecord(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString());
+            if (Purchase.DeleteRecordSuccessful)
+            {
+                MessageBox.Show("Record Deleted!");
+                bwViewProcurementList.RunWorkerAsync();
+            }
+            else
+                MessageBox.Show(Purchase.DeleteRecordErrorMessage);
+        }
     }
 }

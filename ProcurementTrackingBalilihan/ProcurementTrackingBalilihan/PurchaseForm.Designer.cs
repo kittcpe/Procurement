@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseForm));
             this.dtPurchase = new DevExpress.XtraGrid.GridControl();
-            this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvPurchase = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pr_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.description = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,6 +60,10 @@
             this.txtPRmode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtABC = new DevExpress.XtraEditors.TextEdit();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cmbMode = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -75,14 +79,8 @@
             this.dtpDelivery = new DevExpress.XtraEditors.DateEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.barManagerGridProc = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnAddSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnEditSupplier = new DevExpress.XtraBars.BarButtonItem();
-            this.tsDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddProc = new DevExpress.XtraBars.BarButtonItem();
             this.btnEditProc = new DevExpress.XtraBars.BarButtonItem();
@@ -91,10 +89,23 @@
             this.btnposting = new DevExpress.XtraBars.BarButtonItem();
             this.btnprebid = new DevExpress.XtraBars.BarButtonItem();
             this.btnDetails = new DevExpress.XtraBars.BarButtonItem();
+            this.btndelete = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenuGridParent = new DevExpress.XtraBars.PopupMenu(this.components);
             this.txtEnduser = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.gcProcDetails = new DevExpress.XtraEditors.GroupControl();
+            this.cbesupplier = new System.Windows.Forms.ComboBox();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.dtItemDetails = new DevExpress.XtraGrid.GridControl();
+            this.gvItemDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.property_no = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ItemDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Unit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Cost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pr = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Total = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.lblProcurementNo = new DevExpress.XtraEditors.LabelControl();
             this.btnSaveExit = new DevExpress.XtraEditors.SimpleButton();
@@ -111,24 +122,16 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtPropertyNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.dtItemDetails = new DevExpress.XtraGrid.GridControl();
-            this.gvItemDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.property_no = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ItemDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Cost = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pr = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Total = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.txtPurpose = new DevExpress.XtraEditors.MemoEdit();
+            this.supplier = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtABC.Properties)).BeginInit();
+            this.txtABC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpBids.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpBids.Properties)).BeginInit();
@@ -147,36 +150,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEnduser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcProcDetails)).BeginInit();
             this.gcProcDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtItemDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvItemDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnitCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItemDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPropertyNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtItemDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvItemDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurpose.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPurchase
             // 
-            this.dtPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtPurchase.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtPurchase.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPurchase.Location = new System.Drawing.Point(12, 12);
-            this.dtPurchase.MainView = this.gvSupplier;
+            this.dtPurchase.Location = new System.Drawing.Point(14, 15);
+            this.dtPurchase.MainView = this.gvPurchase;
+            this.dtPurchase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtPurchase.Name = "dtPurchase";
-            this.dtPurchase.Size = new System.Drawing.Size(822, 660);
+            this.dtPurchase.Size = new System.Drawing.Size(1059, 812);
             this.dtPurchase.TabIndex = 262;
             this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvSupplier});
-            this.dtPurchase.DoubleClick += new System.EventHandler(this.dtPurchase_DoubleClick);
+            this.gvPurchase});
             this.dtPurchase.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtPurchase_MouseDown);
-            this.dtPurchase.MouseEnter += new System.EventHandler(this.dtPurchase_MouseEnter);
             // 
-            // gvSupplier
+            // gvPurchase
             // 
-            this.gvSupplier.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvPurchase.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.id,
             this.pr_no,
             this.description,
@@ -192,15 +195,15 @@
             this.po,
             this.ntp,
             this.delivery});
-            this.gvSupplier.GridControl = this.dtPurchase;
-            this.gvSupplier.Name = "gvSupplier";
-            this.gvSupplier.OptionsBehavior.Editable = false;
-            this.gvSupplier.OptionsFind.AlwaysVisible = true;
-            this.gvSupplier.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvSupplier.OptionsView.RowAutoHeight = true;
-            this.gvSupplier.OptionsView.ShowGroupPanel = false;
-            this.gvSupplier.OptionsView.ShowIndicator = false;
-            this.gvSupplier.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
+            this.gvPurchase.GridControl = this.dtPurchase;
+            this.gvPurchase.Name = "gvPurchase";
+            this.gvPurchase.OptionsBehavior.Editable = false;
+            this.gvPurchase.OptionsFind.AlwaysVisible = true;
+            this.gvPurchase.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvPurchase.OptionsView.RowAutoHeight = true;
+            this.gvPurchase.OptionsView.ShowGroupPanel = false;
+            this.gvPurchase.OptionsView.ShowIndicator = false;
+            this.gvPurchase.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
             // 
             // id
             // 
@@ -360,9 +363,10 @@
             this.btnMode.Appearance.Options.UseFont = true;
             this.btnMode.Image = ((System.Drawing.Image)(resources.GetObject("btnMode.Image")));
             this.btnMode.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnMode.Location = new System.Drawing.Point(1180, 619);
+            this.btnMode.Location = new System.Drawing.Point(1477, 762);
+            this.btnMode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMode.Name = "btnMode";
-            this.btnMode.Size = new System.Drawing.Size(123, 53);
+            this.btnMode.Size = new System.Drawing.Size(143, 65);
             this.btnMode.TabIndex = 263;
             this.btnMode.Text = "Add";
             this.btnMode.Click += new System.EventHandler(this.btnLogin_Click);
@@ -370,20 +374,22 @@
             // txtProcNo
             // 
             this.txtProcNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProcNo.Location = new System.Drawing.Point(942, 27);
+            this.txtProcNo.Location = new System.Drawing.Point(1199, 33);
+            this.txtProcNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProcNo.Name = "txtProcNo";
             this.txtProcNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProcNo.Properties.Appearance.Options.UseFont = true;
-            this.txtProcNo.Size = new System.Drawing.Size(361, 22);
+            this.txtProcNo.Size = new System.Drawing.Size(421, 26);
             this.txtProcNo.TabIndex = 264;
             // 
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(860, 30);
+            this.labelControl1.Location = new System.Drawing.Point(1103, 37);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 16);
+            this.labelControl1.Size = new System.Drawing.Size(60, 20);
             this.labelControl1.TabIndex = 265;
             this.labelControl1.Text = "PR No:";
             // 
@@ -409,56 +415,66 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(840, 69);
+            this.labelControl2.Location = new System.Drawing.Point(1080, 85);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(96, 16);
+            this.labelControl2.Size = new System.Drawing.Size(120, 20);
             this.labelControl2.TabIndex = 266;
             this.labelControl2.Text = "Description:";
             // 
             // txtDescription
             // 
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(942, 66);
+            this.txtDescription.Location = new System.Drawing.Point(1199, 81);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Properties.Appearance.Options.UseFont = true;
-            this.txtDescription.Size = new System.Drawing.Size(361, 91);
+            this.txtDescription.Size = new System.Drawing.Size(421, 76);
             this.txtDescription.TabIndex = 267;
             // 
             // labelControl3
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(840, 214);
+            this.labelControl3.Location = new System.Drawing.Point(1080, 202);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(88, 16);
+            this.labelControl3.Size = new System.Drawing.Size(110, 20);
             this.labelControl3.TabIndex = 268;
             this.labelControl3.Text = "Mode of PR:";
             // 
             // txtPRmode
             // 
             this.txtPRmode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPRmode.Location = new System.Drawing.Point(942, 211);
+            this.txtPRmode.Location = new System.Drawing.Point(1199, 199);
+            this.txtPRmode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPRmode.Name = "txtPRmode";
             this.txtPRmode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPRmode.Properties.Appearance.Options.UseFont = true;
-            this.txtPRmode.Size = new System.Drawing.Size(361, 22);
+            this.txtPRmode.Size = new System.Drawing.Size(421, 26);
             this.txtPRmode.TabIndex = 269;
             // 
             // labelControl4
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(898, 242);
+            this.labelControl4.Location = new System.Drawing.Point(1148, 237);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(32, 16);
+            this.labelControl4.Size = new System.Drawing.Size(40, 20);
             this.labelControl4.TabIndex = 270;
             this.labelControl4.Text = "ABC:";
             // 
             // txtABC
             // 
             this.txtABC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtABC.Location = new System.Drawing.Point(944, 239);
+            this.txtABC.Controls.Add(this.barDockControlLeft);
+            this.txtABC.Controls.Add(this.barDockControlRight);
+            this.txtABC.Controls.Add(this.barDockControlBottom);
+            this.txtABC.Controls.Add(this.barDockControlTop);
+            this.txtABC.Location = new System.Drawing.Point(1201, 233);
+            this.txtABC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtABC.Name = "txtABC";
             this.txtABC.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtABC.Properties.Appearance.Options.UseFont = true;
@@ -466,16 +482,49 @@
             this.txtABC.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtABC.Properties.Mask.EditMask = "n2";
             this.txtABC.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtABC.Size = new System.Drawing.Size(361, 22);
+            this.txtABC.Size = new System.Drawing.Size(421, 26);
             this.txtABC.TabIndex = 271;
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 26);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(421, 0);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 26);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(421, 0);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(421, 0);
             // 
             // labelControl5
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(872, 270);
+            this.labelControl5.Location = new System.Drawing.Point(1117, 271);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(56, 16);
+            this.labelControl5.Size = new System.Drawing.Size(70, 20);
             this.labelControl5.TabIndex = 272;
             this.labelControl5.Text = "Status:";
             // 
@@ -483,7 +532,8 @@
             // 
             this.cmbMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMode.EditValue = "Pre-Proc";
-            this.cmbMode.Location = new System.Drawing.Point(944, 267);
+            this.cmbMode.Location = new System.Drawing.Point(1201, 268);
+            this.cmbMode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbMode.Name = "cmbMode";
             this.cmbMode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.cmbMode.Properties.Appearance.Options.UseFont = true;
@@ -496,16 +546,17 @@
             "Pre-Bid"});
             this.cmbMode.Properties.NullText = "Pre-proc";
             this.cmbMode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cmbMode.Size = new System.Drawing.Size(361, 22);
+            this.cmbMode.Size = new System.Drawing.Size(421, 26);
             this.cmbMode.TabIndex = 273;
             // 
             // labelControl6
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(872, 313);
+            this.labelControl6.Location = new System.Drawing.Point(1117, 324);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(128, 16);
+            this.labelControl6.Size = new System.Drawing.Size(160, 20);
             this.labelControl6.TabIndex = 274;
             this.labelControl6.Text = "Opening of Bids:";
             // 
@@ -513,7 +564,8 @@
             // 
             this.dtpBids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpBids.EditValue = null;
-            this.dtpBids.Location = new System.Drawing.Point(1008, 310);
+            this.dtpBids.Location = new System.Drawing.Point(1276, 321);
+            this.dtpBids.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpBids.Name = "dtpBids";
             this.dtpBids.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpBids.Properties.Appearance.Options.UseFont = true;
@@ -523,19 +575,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpBids.Properties.CalendarTimeProperties.EditFormat.FormatString = "yyyy:mm:dd";
             this.dtpBids.Properties.CalendarTimeProperties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpBids.Properties.DisplayFormat.FormatString = "D";
-            this.dtpBids.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpBids.Properties.Mask.EditMask = "D";
-            this.dtpBids.Size = new System.Drawing.Size(297, 22);
+            this.dtpBids.Size = new System.Drawing.Size(346, 26);
             this.dtpBids.TabIndex = 275;
             // 
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(860, 348);
+            this.labelControl7.Location = new System.Drawing.Point(1103, 367);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(144, 16);
+            this.labelControl7.Size = new System.Drawing.Size(180, 20);
             this.labelControl7.TabIndex = 276;
             this.labelControl7.Text = "Detailed Bid Eval:";
             // 
@@ -543,7 +593,8 @@
             // 
             this.dtpEval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEval.EditValue = null;
-            this.dtpEval.Location = new System.Drawing.Point(1008, 345);
+            this.dtpEval.Location = new System.Drawing.Point(1276, 364);
+            this.dtpEval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpEval.Name = "dtpEval";
             this.dtpEval.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpEval.Properties.Appearance.Options.UseFont = true;
@@ -551,16 +602,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpEval.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpEval.Size = new System.Drawing.Size(297, 22);
+            this.dtpEval.Size = new System.Drawing.Size(346, 26);
             this.dtpEval.TabIndex = 277;
             // 
             // labelControl8
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(956, 384);
+            this.labelControl8.Location = new System.Drawing.Point(1215, 412);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(48, 16);
+            this.labelControl8.Size = new System.Drawing.Size(60, 20);
             this.labelControl8.TabIndex = 278;
             this.labelControl8.Text = "Award:";
             // 
@@ -568,7 +620,8 @@
             // 
             this.dtpAward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAward.EditValue = null;
-            this.dtpAward.Location = new System.Drawing.Point(1008, 381);
+            this.dtpAward.Location = new System.Drawing.Point(1276, 408);
+            this.dtpAward.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpAward.Name = "dtpAward";
             this.dtpAward.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpAward.Properties.Appearance.Options.UseFont = true;
@@ -576,16 +629,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpAward.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpAward.Size = new System.Drawing.Size(297, 22);
+            this.dtpAward.Size = new System.Drawing.Size(346, 26);
             this.dtpAward.TabIndex = 279;
             // 
             // labelControl9
             // 
             this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(976, 418);
+            this.labelControl9.Location = new System.Drawing.Point(1239, 453);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(24, 16);
+            this.labelControl9.Size = new System.Drawing.Size(30, 20);
             this.labelControl9.TabIndex = 280;
             this.labelControl9.Text = "PO:";
             // 
@@ -593,7 +647,8 @@
             // 
             this.dtpPO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPO.EditValue = null;
-            this.dtpPO.Location = new System.Drawing.Point(1008, 415);
+            this.dtpPO.Location = new System.Drawing.Point(1276, 450);
+            this.dtpPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpPO.Name = "dtpPO";
             this.dtpPO.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpPO.Properties.Appearance.Options.UseFont = true;
@@ -601,16 +656,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpPO.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpPO.Size = new System.Drawing.Size(297, 22);
+            this.dtpPO.Size = new System.Drawing.Size(346, 26);
             this.dtpPO.TabIndex = 281;
             // 
             // labelControl10
             // 
             this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl10.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(968, 455);
+            this.labelControl10.Location = new System.Drawing.Point(1229, 499);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(32, 16);
+            this.labelControl10.Size = new System.Drawing.Size(40, 20);
             this.labelControl10.TabIndex = 282;
             this.labelControl10.Text = "NTP:";
             // 
@@ -618,7 +674,8 @@
             // 
             this.dtpNTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNTP.EditValue = null;
-            this.dtpNTP.Location = new System.Drawing.Point(1008, 452);
+            this.dtpNTP.Location = new System.Drawing.Point(1276, 495);
+            this.dtpNTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpNTP.Name = "dtpNTP";
             this.dtpNTP.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpNTP.Properties.Appearance.Options.UseFont = true;
@@ -626,14 +683,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNTP.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpNTP.Size = new System.Drawing.Size(297, 22);
+            this.dtpNTP.Size = new System.Drawing.Size(346, 26);
             this.dtpNTP.TabIndex = 283;
             // 
             // dtpDelivery
             // 
             this.dtpDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDelivery.EditValue = null;
-            this.dtpDelivery.Location = new System.Drawing.Point(1006, 484);
+            this.dtpDelivery.Location = new System.Drawing.Point(1274, 535);
+            this.dtpDelivery.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
             this.dtpDelivery.Properties.Appearance.Options.UseFont = true;
@@ -641,16 +699,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpDelivery.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpDelivery.Size = new System.Drawing.Size(297, 22);
+            this.dtpDelivery.Size = new System.Drawing.Size(346, 26);
             this.dtpDelivery.TabIndex = 285;
             // 
             // labelControl11
             // 
             this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl11.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Location = new System.Drawing.Point(928, 487);
+            this.labelControl11.Location = new System.Drawing.Point(1183, 538);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(72, 16);
+            this.labelControl11.Size = new System.Drawing.Size(90, 20);
             this.labelControl11.TabIndex = 284;
             this.labelControl11.Text = "Delivery:";
             // 
@@ -664,8 +723,6 @@
             this.barManagerGridProc.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAddSupplier,
             this.btnEditSupplier,
-            this.tsDelete,
-            this.btnRefresh,
             this.barButtonItem1,
             this.btnAddProc,
             this.btnEditProc,
@@ -673,36 +730,9 @@
             this.btnpreproc,
             this.btnposting,
             this.btnprebid,
-            this.btnDetails});
-            this.barManagerGridProc.MaxItemId = 12;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1315, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 684);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1315, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 684);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1315, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 684);
+            this.btnDetails,
+            this.btndelete});
+            this.barManagerGridProc.MaxItemId = 13;
             // 
             // btnAddSupplier
             // 
@@ -720,22 +750,6 @@
             this.btnEditSupplier.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnEditSupplier.LargeGlyph")));
             this.btnEditSupplier.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("btnEditSupplier.LargeGlyphDisabled")));
             this.btnEditSupplier.Name = "btnEditSupplier";
-            // 
-            // tsDelete
-            // 
-            this.tsDelete.Caption = "Delete";
-            this.tsDelete.Glyph = ((System.Drawing.Image)(resources.GetObject("tsDelete.Glyph")));
-            this.tsDelete.Id = 2;
-            this.tsDelete.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tsDelete.LargeGlyph")));
-            this.tsDelete.Name = "tsDelete";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Caption = "Refresh Table";
-            this.btnRefresh.Glyph = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Glyph")));
-            this.btnRefresh.Id = 3;
-            this.btnRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnRefresh.LargeGlyph")));
-            this.btnRefresh.Name = "btnRefresh";
             // 
             // barButtonItem1
             // 
@@ -810,38 +824,53 @@
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetails_ItemClick);
             // 
+            // btndelete
+            // 
+            this.btndelete.Caption = "Delete";
+            this.btndelete.Glyph = ((System.Drawing.Image)(resources.GetObject("btndelete.Glyph")));
+            this.btndelete.Id = 12;
+            this.btndelete.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btndelete.LargeGlyph")));
+            this.btndelete.Name = "btndelete";
+            this.btndelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btndelete_ItemClick);
+            // 
             // popupMenuGridParent
             // 
             this.popupMenuGridParent.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.Caption | DevExpress.XtraBars.BarLinkUserDefines.PaintStyle))), this.btnAddProc, "Add Procurement", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnEditProc),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnChangeStatus),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetails)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetails),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btndelete)});
             this.popupMenuGridParent.Manager = this.barManagerGridProc;
             this.popupMenuGridParent.Name = "popupMenuGridParent";
             // 
             // txtEnduser
             // 
             this.txtEnduser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEnduser.Location = new System.Drawing.Point(942, 163);
+            this.txtEnduser.Location = new System.Drawing.Point(1199, 165);
+            this.txtEnduser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnduser.Name = "txtEnduser";
             this.txtEnduser.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnduser.Properties.Appearance.Options.UseFont = true;
-            this.txtEnduser.Size = new System.Drawing.Size(361, 22);
+            this.txtEnduser.Size = new System.Drawing.Size(421, 26);
             this.txtEnduser.TabIndex = 268;
             // 
             // labelControl12
             // 
             this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl12.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Location = new System.Drawing.Point(864, 166);
+            this.labelControl12.Location = new System.Drawing.Point(1108, 168);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(72, 16);
+            this.labelControl12.Size = new System.Drawing.Size(90, 20);
             this.labelControl12.TabIndex = 290;
             this.labelControl12.Text = "End User:";
             // 
             // gcProcDetails
             // 
+            this.gcProcDetails.Controls.Add(this.cbesupplier);
+            this.gcProcDetails.Controls.Add(this.labelControl21);
+            this.gcProcDetails.Controls.Add(this.dtItemDetails);
             this.gcProcDetails.Controls.Add(this.labelControl19);
             this.gcProcDetails.Controls.Add(this.lblProcurementNo);
             this.gcProcDetails.Controls.Add(this.btnSaveExit);
@@ -858,202 +887,46 @@
             this.gcProcDetails.Controls.Add(this.labelControl14);
             this.gcProcDetails.Controls.Add(this.txtPropertyNo);
             this.gcProcDetails.Controls.Add(this.labelControl13);
-            this.gcProcDetails.Controls.Add(this.dtItemDetails);
-            this.gcProcDetails.Location = new System.Drawing.Point(179, 69);
+            this.gcProcDetails.Location = new System.Drawing.Point(47, 0);
+            this.gcProcDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcProcDetails.Name = "gcProcDetails";
-            this.gcProcDetails.Size = new System.Drawing.Size(939, 555);
+            this.gcProcDetails.Size = new System.Drawing.Size(1095, 683);
             this.gcProcDetails.TabIndex = 295;
             this.gcProcDetails.Text = "Procurement Details";
             this.gcProcDetails.Visible = false;
             // 
-            // labelControl19
+            // cbesupplier
             // 
-            this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl19.Location = new System.Drawing.Point(9, 24);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(133, 13);
-            this.labelControl19.TabIndex = 309;
-            this.labelControl19.Text = "Procurement Number:";
+            this.cbesupplier.FormattingEnabled = true;
+            this.cbesupplier.Location = new System.Drawing.Point(826, 476);
+            this.cbesupplier.Name = "cbesupplier";
+            this.cbesupplier.Size = new System.Drawing.Size(193, 24);
+            this.cbesupplier.TabIndex = 312;
+            this.cbesupplier.Text = "Select Supplier";
             // 
-            // lblProcurementNo
+            // labelControl21
             // 
-            this.lblProcurementNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProcurementNo.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProcurementNo.Location = new System.Drawing.Point(148, 24);
-            this.lblProcurementNo.Name = "lblProcurementNo";
-            this.lblProcurementNo.Size = new System.Drawing.Size(63, 13);
-            this.lblProcurementNo.TabIndex = 308;
-            this.lblProcurementNo.Text = "0000-0000";
-            // 
-            // btnSaveExit
-            // 
-            this.btnSaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveExit.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveExit.Appearance.Options.UseFont = true;
-            this.btnSaveExit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveExit.Image")));
-            this.btnSaveExit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnSaveExit.Location = new System.Drawing.Point(750, 28);
-            this.btnSaveExit.Name = "btnSaveExit";
-            this.btnSaveExit.Size = new System.Drawing.Size(184, 39);
-            this.btnSaveExit.TabIndex = 307;
-            this.btnSaveExit.Text = "Save and Exit";
-            this.btnSaveExit.Click += new System.EventHandler(this.btnSaveExit_Click);
-            // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteItem.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteItem.Appearance.Options.UseFont = true;
-            this.btnDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteItem.Image")));
-            this.btnDeleteItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnDeleteItem.Location = new System.Drawing.Point(833, 511);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(101, 39);
-            this.btnDeleteItem.TabIndex = 306;
-            this.btnDeleteItem.Text = "Delete";
-            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddItem.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Appearance.Options.UseFont = true;
-            this.btnAddItem.Image = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Image")));
-            this.btnAddItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnAddItem.Location = new System.Drawing.Point(833, 463);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(101, 39);
-            this.btnAddItem.TabIndex = 305;
-            this.btnAddItem.Text = "Add";
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
-            // txtUnitCost
-            // 
-            this.txtUnitCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUnitCost.Location = new System.Drawing.Point(401, 421);
-            this.txtUnitCost.Name = "txtUnitCost";
-            this.txtUnitCost.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitCost.Properties.Appearance.Options.UseFont = true;
-            this.txtUnitCost.Properties.Mask.EditMask = "n2";
-            this.txtUnitCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtUnitCost.Size = new System.Drawing.Size(233, 22);
-            this.txtUnitCost.TabIndex = 304;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl18.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl18.Location = new System.Drawing.Point(315, 424);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(80, 16);
-            this.labelControl18.TabIndex = 303;
-            this.labelControl18.Text = "Unit Cost:";
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQuantity.Location = new System.Drawing.Point(401, 383);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Properties.Appearance.Options.UseFont = true;
-            this.txtQuantity.Properties.Mask.EditMask = "d";
-            this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtQuantity.Size = new System.Drawing.Size(233, 22);
-            this.txtQuantity.TabIndex = 302;
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl17.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl17.Location = new System.Drawing.Point(323, 386);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(72, 16);
-            this.labelControl17.TabIndex = 301;
-            this.labelControl17.Text = "Quantity:";
-            // 
-            // txtItemDescription
-            // 
-            this.txtItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItemDescription.Location = new System.Drawing.Point(148, 459);
-            this.txtItemDescription.Name = "txtItemDescription";
-            this.txtItemDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemDescription.Properties.Appearance.Options.UseFont = true;
-            this.txtItemDescription.Size = new System.Drawing.Size(486, 79);
-            this.txtItemDescription.TabIndex = 300;
-            // 
-            // labelControl16
-            // 
-            this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl16.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl16.Location = new System.Drawing.Point(6, 460);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(136, 16);
-            this.labelControl16.TabIndex = 299;
-            this.labelControl16.Text = "Item Description:";
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUnit.Location = new System.Drawing.Point(148, 421);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnit.Properties.Appearance.Options.UseFont = true;
-            this.txtUnit.Size = new System.Drawing.Size(158, 22);
-            this.txtUnit.TabIndex = 298;
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl15.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl15.Location = new System.Drawing.Point(102, 424);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(40, 16);
-            this.labelControl15.TabIndex = 297;
-            this.labelControl15.Text = "Unit:";
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl14.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl14.Location = new System.Drawing.Point(46, 386);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(96, 16);
-            this.labelControl14.TabIndex = 296;
-            this.labelControl14.Text = "Property No:";
-            // 
-            // txtPropertyNo
-            // 
-            this.txtPropertyNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPropertyNo.Location = new System.Drawing.Point(148, 383);
-            this.txtPropertyNo.Name = "txtPropertyNo";
-            this.txtPropertyNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPropertyNo.Properties.Appearance.Options.UseFont = true;
-            this.txtPropertyNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtPropertyNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtPropertyNo.Size = new System.Drawing.Size(158, 22);
-            this.txtPropertyNo.TabIndex = 296;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl13.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl13.Location = new System.Drawing.Point(9, 50);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(91, 13);
-            this.labelControl13.TabIndex = 296;
-            this.labelControl13.Text = "Item Details:";
+            this.labelControl21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl21.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl21.Location = new System.Drawing.Point(730, 475);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(90, 20);
+            this.labelControl21.TabIndex = 311;
+            this.labelControl21.Text = "Supplier:";
             // 
             // dtItemDetails
             // 
-            this.dtItemDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtItemDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtItemDetails.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtItemDetails.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtItemDetails.Location = new System.Drawing.Point(15, 73);
+            this.dtItemDetails.Location = new System.Drawing.Point(17, 90);
             this.dtItemDetails.MainView = this.gvItemDetails;
+            this.dtItemDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtItemDetails.Name = "dtItemDetails";
-            this.dtItemDetails.Size = new System.Drawing.Size(919, 304);
+            this.dtItemDetails.Size = new System.Drawing.Size(1072, 374);
             this.dtItemDetails.TabIndex = 263;
             this.dtItemDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvItemDetails});
@@ -1068,7 +941,8 @@
             this.Cost,
             this.pr,
             this.Quantity,
-            this.Total});
+            this.Total,
+            this.supplier});
             this.gvItemDetails.GridControl = this.dtItemDetails;
             this.gvItemDetails.Name = "gvItemDetails";
             this.gvItemDetails.OptionsBehavior.Editable = false;
@@ -1147,32 +1021,235 @@
             this.Total.Visible = true;
             this.Total.VisibleIndex = 5;
             // 
+            // labelControl19
+            // 
+            this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl19.Location = new System.Drawing.Point(10, 30);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(152, 16);
+            this.labelControl19.TabIndex = 309;
+            this.labelControl19.Text = "Procurement Number:";
+            // 
+            // lblProcurementNo
+            // 
+            this.lblProcurementNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProcurementNo.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProcurementNo.Location = new System.Drawing.Point(173, 30);
+            this.lblProcurementNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblProcurementNo.Name = "lblProcurementNo";
+            this.lblProcurementNo.Size = new System.Drawing.Size(72, 16);
+            this.lblProcurementNo.TabIndex = 308;
+            this.lblProcurementNo.Text = "0000-0000";
+            // 
+            // btnSaveExit
+            // 
+            this.btnSaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveExit.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveExit.Appearance.Options.UseFont = true;
+            this.btnSaveExit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveExit.Image")));
+            this.btnSaveExit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnSaveExit.Location = new System.Drawing.Point(875, 34);
+            this.btnSaveExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveExit.Name = "btnSaveExit";
+            this.btnSaveExit.Size = new System.Drawing.Size(215, 48);
+            this.btnSaveExit.TabIndex = 307;
+            this.btnSaveExit.Text = "Save and Exit";
+            this.btnSaveExit.Click += new System.EventHandler(this.btnSaveExit_Click);
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteItem.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteItem.Appearance.Options.UseFont = true;
+            this.btnDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteItem.Image")));
+            this.btnDeleteItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnDeleteItem.Location = new System.Drawing.Point(972, 629);
+            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(118, 48);
+            this.btnDeleteItem.TabIndex = 306;
+            this.btnDeleteItem.Text = "Delete";
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddItem.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Appearance.Options.UseFont = true;
+            this.btnAddItem.Image = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Image")));
+            this.btnAddItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnAddItem.Location = new System.Drawing.Point(972, 570);
+            this.btnAddItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(118, 48);
+            this.btnAddItem.TabIndex = 305;
+            this.btnAddItem.Text = "Add";
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // txtUnitCost
+            // 
+            this.txtUnitCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitCost.Location = new System.Drawing.Point(468, 518);
+            this.txtUnitCost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUnitCost.Name = "txtUnitCost";
+            this.txtUnitCost.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitCost.Properties.Appearance.Options.UseFont = true;
+            this.txtUnitCost.Properties.Mask.EditMask = "n2";
+            this.txtUnitCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtUnitCost.Size = new System.Drawing.Size(243, 26);
+            this.txtUnitCost.TabIndex = 304;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl18.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl18.Location = new System.Drawing.Point(367, 522);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(100, 20);
+            this.labelControl18.TabIndex = 303;
+            this.labelControl18.Text = "Unit Cost:";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuantity.Location = new System.Drawing.Point(468, 471);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Properties.Appearance.Options.UseFont = true;
+            this.txtQuantity.Properties.Mask.EditMask = "d";
+            this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtQuantity.Size = new System.Drawing.Size(243, 26);
+            this.txtQuantity.TabIndex = 302;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl17.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl17.Location = new System.Drawing.Point(377, 475);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(90, 20);
+            this.labelControl17.TabIndex = 301;
+            this.labelControl17.Text = "Quantity:";
+            // 
+            // txtItemDescription
+            // 
+            this.txtItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemDescription.Location = new System.Drawing.Point(183, 565);
+            this.txtItemDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtItemDescription.Name = "txtItemDescription";
+            this.txtItemDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemDescription.Properties.Appearance.Options.UseFont = true;
+            this.txtItemDescription.Size = new System.Drawing.Size(528, 97);
+            this.txtItemDescription.TabIndex = 300;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl16.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl16.Location = new System.Drawing.Point(7, 566);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(170, 20);
+            this.labelControl16.TabIndex = 299;
+            this.labelControl16.Text = "Item Description:";
+            // 
+            // txtUnit
+            // 
+            this.txtUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnit.Location = new System.Drawing.Point(173, 518);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnit.Properties.Appearance.Options.UseFont = true;
+            this.txtUnit.Size = new System.Drawing.Size(184, 26);
+            this.txtUnit.TabIndex = 298;
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl15.Location = new System.Drawing.Point(119, 522);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(50, 20);
+            this.labelControl15.TabIndex = 297;
+            this.labelControl15.Text = "Unit:";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Location = new System.Drawing.Point(54, 475);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(120, 20);
+            this.labelControl14.TabIndex = 296;
+            this.labelControl14.Text = "Property No:";
+            // 
+            // txtPropertyNo
+            // 
+            this.txtPropertyNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPropertyNo.Location = new System.Drawing.Point(173, 471);
+            this.txtPropertyNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPropertyNo.Name = "txtPropertyNo";
+            this.txtPropertyNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPropertyNo.Properties.Appearance.Options.UseFont = true;
+            this.txtPropertyNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPropertyNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPropertyNo.Size = new System.Drawing.Size(184, 26);
+            this.txtPropertyNo.TabIndex = 296;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl13.Appearance.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl13.Location = new System.Drawing.Point(10, 62);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(104, 16);
+            this.labelControl13.TabIndex = 296;
+            this.labelControl13.Text = "Item Details:";
+            // 
             // labelControl20
             // 
             this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl20.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl20.Location = new System.Drawing.Point(936, 514);
+            this.labelControl20.Location = new System.Drawing.Point(1192, 572);
+            this.labelControl20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(64, 16);
+            this.labelControl20.Size = new System.Drawing.Size(80, 20);
             this.labelControl20.TabIndex = 300;
             this.labelControl20.Text = "Purpose:";
             // 
             // txtPurpose
             // 
             this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPurpose.Location = new System.Drawing.Point(1006, 512);
+            this.txtPurpose.Location = new System.Drawing.Point(1274, 569);
+            this.txtPurpose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurpose.Properties.Appearance.Options.UseFont = true;
-            this.txtPurpose.Size = new System.Drawing.Size(299, 91);
+            this.txtPurpose.Size = new System.Drawing.Size(349, 93);
             this.txtPurpose.TabIndex = 301;
+            // 
+            // supplier
+            // 
+            this.supplier.Caption = "Supplier";
+            this.supplier.FieldName = "supplier";
+            this.supplier.Name = "supplier";
+            this.supplier.Visible = true;
+            this.supplier.VisibleIndex = 6;
             // 
             // PurchaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 684);
-            this.Controls.Add(this.gcProcDetails);
+            this.ClientSize = new System.Drawing.Size(1634, 842);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.txtEnduser);
             this.Controls.Add(this.dtpDelivery);
@@ -1197,26 +1274,25 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtProcNo);
             this.Controls.Add(this.btnMode);
-            this.Controls.Add(this.dtPurchase);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtPurpose);
             this.Controls.Add(this.labelControl20);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.gcProcDetails);
+            this.Controls.Add(this.dtPurchase);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PurchaseForm";
             this.Text = "Purchase";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Shown += new System.EventHandler(this.PurchaseForm_Shown_1);
+            this.Shown += new System.EventHandler(this.PurchaseForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtABC.Properties)).EndInit();
+            this.txtABC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbMode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpBids.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpBids.Properties)).EndInit();
@@ -1236,13 +1312,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcProcDetails)).EndInit();
             this.gcProcDetails.ResumeLayout(false);
             this.gcProcDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtItemDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvItemDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnitCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItemDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPropertyNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtItemDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvItemDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurpose.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1252,7 +1328,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl dtPurchase;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvSupplier;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvPurchase;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn description;
         private DevExpress.XtraEditors.SimpleButton btnMode;
@@ -1302,8 +1378,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnAddSupplier;
         private DevExpress.XtraBars.BarButtonItem btnEditSupplier;
-        private DevExpress.XtraBars.BarButtonItem tsDelete;
-        private DevExpress.XtraBars.BarButtonItem btnRefresh;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnAddProc;
         private DevExpress.XtraBars.BarButtonItem btnEditProc;
@@ -1344,5 +1418,9 @@
         private DevExpress.XtraBars.BarButtonItem btnDetails;
         private DevExpress.XtraGrid.Columns.GridColumn Cost;
         private DevExpress.XtraGrid.Columns.GridColumn Total;
+        private DevExpress.XtraBars.BarButtonItem btndelete;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private System.Windows.Forms.ComboBox cbesupplier;
+        private DevExpress.XtraGrid.Columns.GridColumn supplier;
     }
 }
