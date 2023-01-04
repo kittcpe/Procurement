@@ -21,7 +21,7 @@ namespace ProcurementTrackingBalilihan
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Dark Style");
             Application.Run(new LoginFormRedesigned());
         }
     }
