@@ -74,7 +74,7 @@
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHomepage});
-            this.ribbon.Size = new System.Drawing.Size(1095, 145);
+            this.ribbon.Size = new System.Drawing.Size(1101, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // applicationMenu2
@@ -161,10 +161,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 513);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 514);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1095, 32);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1101, 31);
             // 
             // applicationMenu1
             // 
@@ -190,7 +190,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Black";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "DevExpress Dark Style";
             // 
             // HomepageForm
             // 
@@ -198,7 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = global::ProcurementTrackingBalilihan.Properties.Resources.bg_photo;
-            this.ClientSize = new System.Drawing.Size(1095, 545);
+            this.ClientSize = new System.Drawing.Size(1101, 545);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -207,7 +207,7 @@
             this.Name = "HomepageForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "2";
+            this.Text = "Procurement Tracking";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomepageForm_FormClosed);
             this.Shown += new System.EventHandler(this.HomepageForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
