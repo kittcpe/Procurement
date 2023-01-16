@@ -14,5 +14,8 @@ namespace ProcurementTrackingBalilihan.Core
         #region Server Details
         public static string ServerConnectionString =  File.ReadLines("constring.txt").First();
         #endregion
+
+        public static string UserPrivilege { get; set; }
     }
+
 }

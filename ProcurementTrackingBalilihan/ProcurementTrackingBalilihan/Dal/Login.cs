@@ -51,7 +51,9 @@ namespace ProcurementTrackingBalilihan.Dal
                     GetUserDataSuccessful=true;
                     if (dt.Tables[0].Rows.Count > 0)
                     {
+                        PublicVariables.UserPrivilege = dt.Tables[0].Rows[0]["role"].ToString();
                         return dt.Tables[0];
+                        
                     }
                     else
                     {

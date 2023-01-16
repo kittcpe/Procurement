@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Helpers;
+using ProcurementTrackingBalilihan.Core;
 
 namespace ProcurementTrackingBalilihan
 {
@@ -26,6 +27,9 @@ namespace ProcurementTrackingBalilihan
             this.WindowState = FormWindowState.Maximized;
             this.Location = new Point(0, 0);
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Text = PublicVariables.UserPrivilege;
+
+    
         
         }
 

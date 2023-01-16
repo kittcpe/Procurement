@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ProcurementTrackingBalilihan.Dal;
+using ProcurementTrackingBalilihan.Core;
 
 namespace ProcurementTrackingBalilihan
 {
@@ -61,6 +62,12 @@ namespace ProcurementTrackingBalilihan
             {
                 ShowLoading("Loading Procurement List");
                 bwViewProcurementList.RunWorkerAsync();
+            }
+            if (PublicVariables.UserPrivilege != "Administrator")
+            {
+                btnEditProc.Enabled = false;
+                btnChangeStatus.Enabled = false;
+                btndelete.Enabled = false;
             }
 
         }
@@ -194,33 +201,42 @@ namespace ProcurementTrackingBalilihan
 
         private void btnEditProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnMode.Text = "Save";
-            txtProcNo.Enabled = false;
+            if (PublicVariables.UserPrivilege == "Administrator")
+            {
+                btnMode.Text = "Save";
+                txtProcNo.Enabled = false;
 
-            //txtPendingReason.Text = pendingdata.Rows[0]["remarks"].ToString();
-            txtProcNo.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
-            //txtDescription.Text = ItemList.Rows[gvPurchase.FocusedRowHandle]["description"].ToString();
-            txtDescription.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "description").ToString();
+                //txtPendingReason.Text = pendingdata.Rows[0]["remarks"].ToString();
+                txtProcNo.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString();
+                //txtDescription.Text = ItemList.Rows[gvPurchase.FocusedRowHandle]["description"].ToString();
+                txtDescription.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "description").ToString();
 
-            txtEnduser.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "end_user").ToString();
-            txtPRmode.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "mode_of_pr").ToString();
-            txtABC.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "abc").ToString();
-            txtPurpose.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "purpose").ToString();
+                txtEnduser.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "end_user").ToString();
+                txtPRmode.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "mode_of_pr").ToString();
+                txtABC.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "abc").ToString();
+                txtPurpose.Text = gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "purpose").ToString();
 
-           //dates
-            DateTime dtAward = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "award").ToString());
-            DateTime dtBids = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "opening_of_bids").ToString());
-            DateTime dtDelivery = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "delivery").ToString());
-            DateTime dtEval = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "detailed_bid_eval").ToString());
-            DateTime dtntp = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "ntp").ToString());
-            DateTime dtpo = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "po").ToString());
+                //dates
+                DateTime dtAward = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "award").ToString());
+                DateTime dtBids = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "opening_of_bids").ToString());
+                DateTime dtDelivery = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "delivery").ToString());
+                DateTime dtEval = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "detailed_bid_eval").ToString());
+                DateTime dtntp = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "ntp").ToString());
+                DateTime dtpo = DateTime.Parse(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "po").ToString());
 
-            dtpAward.Text = dtAward.ToShortDateString();
-            dtpBids.Text = dtBids.ToShortDateString();
-            dtpDelivery.Text = dtDelivery.ToShortDateString();
-            dtpEval.Text = dtEval.ToShortDateString();
-            dtpNTP.Text = dtntp.ToShortDateString();
-            dtpPO.Text = dtpo.ToShortDateString();
+                dtpAward.Text = dtAward.ToShortDateString();
+                dtpBids.Text = dtBids.ToShortDateString();
+                dtpDelivery.Text = dtDelivery.ToShortDateString();
+                dtpEval.Text = dtEval.ToShortDateString();
+                dtpNTP.Text = dtntp.ToShortDateString();
+                dtpPO.Text = dtpo.ToShortDateString();
+            }
+            else
+            {
+                MessageBox.Show("You do not have the access!\n Please Contact your administrator");
+            }
+
+           
        
 
 
@@ -362,14 +378,21 @@ namespace ProcurementTrackingBalilihan
 
         private void btndelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Purchase.DeleteRecord(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString());
-            if (Purchase.DeleteRecordSuccessful)
+            if (PublicVariables.UserPrivilege == "Administrator")
             {
-                MessageBox.Show("Record Deleted!");
-                bwViewProcurementList.RunWorkerAsync();
+                Purchase.DeleteRecord(gvPurchase.GetRowCellValue(gvPurchase.FocusedRowHandle, "pr_no").ToString());
+                if (Purchase.DeleteRecordSuccessful)
+                {
+                    MessageBox.Show("Record Deleted!");
+                    bwViewProcurementList.RunWorkerAsync();
+                }
+                else
+                    MessageBox.Show(Purchase.DeleteRecordErrorMessage);
             }
             else
-                MessageBox.Show(Purchase.DeleteRecordErrorMessage);
+            {
+                MessageBox.Show("You do not have the access!\n Please Contact your administrator");
+            }
         }
     }
 }
