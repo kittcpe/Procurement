@@ -171,7 +171,7 @@
             this.dtPurchase.MainView = this.gvPurchase;
             this.dtPurchase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtPurchase.Name = "dtPurchase";
-            this.dtPurchase.Size = new System.Drawing.Size(1362, 964);
+            this.dtPurchase.Size = new System.Drawing.Size(1722, 1129);
             this.dtPurchase.TabIndex = 262;
             this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPurchase});
@@ -375,7 +375,7 @@
             this.btnMode.Appearance.Options.UseFont = true;
             this.btnMode.Image = ((System.Drawing.Image)(resources.GetObject("btnMode.Image")));
             this.btnMode.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnMode.Location = new System.Drawing.Point(1899, 905);
+            this.btnMode.Location = new System.Drawing.Point(2259, 1070);
             this.btnMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMode.Name = "btnMode";
             this.btnMode.Size = new System.Drawing.Size(184, 77);
@@ -386,7 +386,7 @@
             // txtProcNo
             // 
             this.txtProcNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProcNo.Location = new System.Drawing.Point(1542, 39);
+            this.txtProcNo.Location = new System.Drawing.Point(1902, 39);
             this.txtProcNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtProcNo.Name = "txtProcNo";
             this.txtProcNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,7 +398,7 @@
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(1418, 44);
+            this.labelControl1.Location = new System.Drawing.Point(1778, 44);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(72, 24);
@@ -427,7 +427,7 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(1389, 101);
+            this.labelControl2.Location = new System.Drawing.Point(1749, 101);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(144, 24);
@@ -437,7 +437,7 @@
             // txtDescription
             // 
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(1542, 96);
+            this.txtDescription.Location = new System.Drawing.Point(1902, 96);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,7 +449,7 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(1389, 240);
+            this.labelControl3.Location = new System.Drawing.Point(1749, 240);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(132, 24);
@@ -459,7 +459,7 @@
             // txtPRmode
             // 
             this.txtPRmode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPRmode.Location = new System.Drawing.Point(1542, 236);
+            this.txtPRmode.Location = new System.Drawing.Point(1902, 236);
             this.txtPRmode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPRmode.Name = "txtPRmode";
             this.txtPRmode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -471,7 +471,7 @@
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(1476, 281);
+            this.labelControl4.Location = new System.Drawing.Point(1836, 281);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 24);
@@ -485,7 +485,7 @@
             this.txtABC.Controls.Add(this.barDockControlRight);
             this.txtABC.Controls.Add(this.barDockControlBottom);
             this.txtABC.Controls.Add(this.barDockControlTop);
-            this.txtABC.Location = new System.Drawing.Point(1544, 277);
+            this.txtABC.Location = new System.Drawing.Point(1904, 277);
             this.txtABC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtABC.Name = "txtABC";
             this.txtABC.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -533,7 +533,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(1436, 322);
+            this.labelControl5.Location = new System.Drawing.Point(1796, 322);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(84, 24);
@@ -544,7 +544,7 @@
             // 
             this.cmbMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMode.EditValue = "Pre-Proc";
-            this.cmbMode.Location = new System.Drawing.Point(1544, 318);
+            this.cmbMode.Location = new System.Drawing.Point(1904, 318);
             this.cmbMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbMode.Name = "cmbMode";
             this.cmbMode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -565,7 +565,7 @@
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(1436, 385);
+            this.labelControl6.Location = new System.Drawing.Point(1796, 385);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(192, 24);
@@ -576,7 +576,7 @@
             // 
             this.dtpBids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpBids.EditValue = null;
-            this.dtpBids.Location = new System.Drawing.Point(1641, 381);
+            this.dtpBids.Location = new System.Drawing.Point(2001, 381);
             this.dtpBids.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBids.Name = "dtpBids";
             this.dtpBids.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -602,7 +602,7 @@
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(1418, 436);
+            this.labelControl7.Location = new System.Drawing.Point(1778, 436);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(216, 24);
@@ -613,7 +613,7 @@
             // 
             this.dtpEval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEval.EditValue = null;
-            this.dtpEval.Location = new System.Drawing.Point(1641, 432);
+            this.dtpEval.Location = new System.Drawing.Point(2001, 432);
             this.dtpEval.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpEval.Name = "dtpEval";
             this.dtpEval.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -629,7 +629,7 @@
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(1562, 489);
+            this.labelControl8.Location = new System.Drawing.Point(1922, 489);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(72, 24);
@@ -640,7 +640,7 @@
             // 
             this.dtpAward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAward.EditValue = null;
-            this.dtpAward.Location = new System.Drawing.Point(1641, 484);
+            this.dtpAward.Location = new System.Drawing.Point(2001, 484);
             this.dtpAward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpAward.Name = "dtpAward";
             this.dtpAward.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -656,7 +656,7 @@
             // 
             this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(1593, 538);
+            this.labelControl9.Location = new System.Drawing.Point(1953, 538);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(36, 24);
@@ -667,7 +667,7 @@
             // 
             this.dtpPO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPO.EditValue = null;
-            this.dtpPO.Location = new System.Drawing.Point(1641, 534);
+            this.dtpPO.Location = new System.Drawing.Point(2001, 534);
             this.dtpPO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpPO.Name = "dtpPO";
             this.dtpPO.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -683,7 +683,7 @@
             // 
             this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl10.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(1580, 593);
+            this.labelControl10.Location = new System.Drawing.Point(1940, 593);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(48, 24);
@@ -694,7 +694,7 @@
             // 
             this.dtpNTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNTP.EditValue = null;
-            this.dtpNTP.Location = new System.Drawing.Point(1641, 588);
+            this.dtpNTP.Location = new System.Drawing.Point(2001, 588);
             this.dtpNTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNTP.Name = "dtpNTP";
             this.dtpNTP.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -710,7 +710,7 @@
             // 
             this.dtpDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDelivery.EditValue = null;
-            this.dtpDelivery.Location = new System.Drawing.Point(1638, 635);
+            this.dtpDelivery.Location = new System.Drawing.Point(1998, 635);
             this.dtpDelivery.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -726,7 +726,7 @@
             // 
             this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl11.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Location = new System.Drawing.Point(1521, 639);
+            this.labelControl11.Location = new System.Drawing.Point(1881, 639);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(108, 24);
@@ -867,7 +867,7 @@
             // txtEnduser
             // 
             this.txtEnduser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEnduser.Location = new System.Drawing.Point(1542, 196);
+            this.txtEnduser.Location = new System.Drawing.Point(1902, 196);
             this.txtEnduser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEnduser.Name = "txtEnduser";
             this.txtEnduser.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -879,7 +879,7 @@
             // 
             this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl12.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Location = new System.Drawing.Point(1425, 200);
+            this.labelControl12.Location = new System.Drawing.Point(1785, 200);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(108, 24);
@@ -1248,7 +1248,7 @@
             // 
             this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl20.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl20.Location = new System.Drawing.Point(1533, 679);
+            this.labelControl20.Location = new System.Drawing.Point(1893, 679);
             this.labelControl20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(96, 24);
@@ -1258,7 +1258,7 @@
             // txtPurpose
             // 
             this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPurpose.Location = new System.Drawing.Point(1638, 676);
+            this.txtPurpose.Location = new System.Drawing.Point(1998, 676);
             this.txtPurpose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1270,7 +1270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2101, 1000);
+            this.ClientSize = new System.Drawing.Size(2461, 1165);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.txtEnduser);
             this.Controls.Add(this.dtpDelivery);
