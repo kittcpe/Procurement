@@ -56,6 +56,9 @@ C:\Users\Lenovo\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procur
 F:\Sideline\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe.config
 F:\Sideline\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.exe
 F:\Sideline\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.pdb
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe.config
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.pdb
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.csprojResolveAssemblyReference.cache
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.ChangeConnectionForm.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.LoginFormRedesigned.resources
@@ -69,8 +72,6 @@ C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procureme
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\SAMPLE_MEMO_NOTIF.WaitForm1.resources
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.csproj.GenerateResource.Cache
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.exe.licenses
-C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe.config
-C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.exe
-C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\bin\Debug\ProcurementTrackingBalilihan.pdb
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.exe
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.pdb
+C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.UserForm.resources

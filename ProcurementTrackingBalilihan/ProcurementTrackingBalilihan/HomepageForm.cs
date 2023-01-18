@@ -28,9 +28,11 @@ namespace ProcurementTrackingBalilihan
             this.Location = new Point(0, 0);
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Text = PublicVariables.UserPrivilege;
-
-    
-        
+            if (PublicVariables.UserPrivilege == "User")
+            {
+                UserManagementbtn.Visibility = BarItemVisibility.Never;
+                UserManagementbr.Visible = false;
+            }
         }
 
         public static bool SupplierFormIsOpen = false;
@@ -149,6 +151,31 @@ namespace ProcurementTrackingBalilihan
         {
             LoginFormRedesigned.UserLogout = true;
             this.Hide();
+        }
+
+        public static bool UserFormIsOPen = false;
+        private void UserManagementbtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!UserFormIsOPen)
+            {
+                UserFormIsOPen = true;
+                UserForm uf = new UserForm();
+                uf.MdiParent = this;
+                uf.WindowState = FormWindowState.Maximized;
+                uf.Show();
+            }
+            else
+            {
+                Form fc = Application.OpenForms["UserForm"];
+                if (fc == null)
+                {
+                    UserForm a1 = new UserForm();
+                    a1.MdiParent = this;
+                    a1.Show();
+                }
+                else
+                    fc.Activate();
+            }
         }
 
     }

@@ -39,8 +39,10 @@
             this.LogOutBtn = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.Appearancebtn = new DevExpress.XtraBars.BarButtonItem();
+            this.UserManagementbtn = new DevExpress.XtraBars.BarButtonItem();
             this.rpHomepage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.UserManagementbr = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.btnSuppliers = new DevExpress.XtraBars.BarButtonItem();
@@ -67,9 +69,10 @@
             this.btnLogout,
             this.LogOutBtn,
             this.btnPrint,
-            this.Appearancebtn});
+            this.Appearancebtn,
+            this.UserManagementbtn});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.LogOutBtn);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -144,10 +147,20 @@
             this.Appearancebtn.Id = 4;
             this.Appearancebtn.Name = "Appearancebtn";
             // 
+            // UserManagementbtn
+            // 
+            this.UserManagementbtn.Caption = "User Management";
+            this.UserManagementbtn.Glyph = ((System.Drawing.Image)(resources.GetObject("UserManagementbtn.Glyph")));
+            this.UserManagementbtn.Id = 5;
+            this.UserManagementbtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("UserManagementbtn.LargeGlyph")));
+            this.UserManagementbtn.Name = "UserManagementbtn";
+            this.UserManagementbtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UserManagementbtn_ItemClick);
+            // 
             // rpHomepage
             // 
             this.rpHomepage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.UserManagementbr});
             this.rpHomepage.Name = "rpHomepage";
             this.rpHomepage.Text = "Home Page";
             // 
@@ -159,6 +172,11 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPrint);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLogout);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // UserManagementbr
+            // 
+            this.UserManagementbr.ItemLinks.Add(this.UserManagementbtn);
+            this.UserManagementbr.Name = "UserManagementbr";
             // 
             // ribbonStatusBar
             // 
@@ -240,5 +258,7 @@
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu2;
         private DevExpress.XtraBars.BarButtonItem Appearancebtn;
+        private DevExpress.XtraBars.BarButtonItem UserManagementbtn;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup UserManagementbr;
     }
 }
