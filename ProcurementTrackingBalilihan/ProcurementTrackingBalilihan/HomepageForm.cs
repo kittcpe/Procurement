@@ -144,5 +144,12 @@ namespace ProcurementTrackingBalilihan
         {
             Application.Exit();
         }
+
+        private void LogOutBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoginFormRedesigned.UserLogout = true;
+            this.Hide();
+        }
+
     }
 }
