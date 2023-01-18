@@ -130,7 +130,7 @@ namespace ProcurementTrackingBalilihan
                 {bwPurchase.RunWorkerAsync();}
             }
 
-            }
+        }
 
         private void bwPurchase_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -235,11 +235,6 @@ namespace ProcurementTrackingBalilihan
             {
                 MessageBox.Show("You do not have the access!\n Please Contact your administrator");
             }
-
-           
-       
-
-
         }
         private void ControlTextBoxPanel(bool operation) {
             txtProcNo.Enabled = operation;

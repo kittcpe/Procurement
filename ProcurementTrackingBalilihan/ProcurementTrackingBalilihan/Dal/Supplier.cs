@@ -62,10 +62,8 @@ namespace ProcurementTrackingBalilihan.Dal
                     catch (Exception ex) {
                         SaveErrorMessage = ex.Message + "\n Function: Save Supplier";
                     }
-
                 }
                 else
-
                 {
                     try
                     {
@@ -76,10 +74,7 @@ namespace ProcurementTrackingBalilihan.Dal
                         con.Close();
                     }
                     catch (Exception ex) {SaveErrorMessage = ex.Message + "\n Function: Save Supplier"; }
-                    
-                
                 }
-
             }
         }
         public static bool isDeleted = false;
@@ -102,9 +97,6 @@ namespace ProcurementTrackingBalilihan.Dal
                     {
                         DeleteErrorMessage = ex.Message + "\n Function: Delete Supplier";
                     }
-
-
-
             }
         }
 
