@@ -36,7 +36,7 @@
             this.btnPurchase = new DevExpress.XtraBars.BarButtonItem();
             this.btnTrackItem = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.logoutbarbutton = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.Appearancebtn = new DevExpress.XtraBars.BarButtonItem();
             this.rpHomepage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -65,13 +65,13 @@
             this.btnPurchase,
             this.btnTrackItem,
             this.btnLogout,
-            this.logoutbarbutton,
+            this.barButtonItem1,
             this.btnPrint,
             this.Appearancebtn});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 5;
             this.ribbon.Name = "ribbon";
-            this.ribbon.PageHeaderItemLinks.Add(this.logoutbarbutton);
+            this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHomepage});
             this.ribbon.Size = new System.Drawing.Size(1101, 144);
@@ -120,14 +120,13 @@
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
-            // logoutbarbutton
+            // barButtonItem1
             // 
-            this.logoutbarbutton.Caption = "Logout [user]";
-            this.logoutbarbutton.Glyph = ((System.Drawing.Image)(resources.GetObject("logoutbarbutton.Glyph")));
-            this.logoutbarbutton.Id = 2;
-            this.logoutbarbutton.Name = "logoutbarbutton";
-            this.logoutbarbutton.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            this.logoutbarbutton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.logoutbarbutton_ItemClick);
+            this.barButtonItem1.Caption = "Logout [user]";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // btnPrint
             // 
@@ -234,7 +233,7 @@
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
-        private DevExpress.XtraBars.BarButtonItem logoutbarbutton;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
