@@ -72,12 +72,13 @@
             this.Appearancebtn,
             this.UserManagementbtn});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.LogOutBtn);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHomepage});
-            this.ribbon.Size = new System.Drawing.Size(1101, 144);
+            this.ribbon.Size = new System.Drawing.Size(1284, 155);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // applicationMenu2
@@ -150,7 +151,6 @@
             // UserManagementbtn
             // 
             this.UserManagementbtn.Caption = "User Management";
-            this.UserManagementbtn.Glyph = ((System.Drawing.Image)(resources.GetObject("UserManagementbtn.Glyph")));
             this.UserManagementbtn.Id = 5;
             this.UserManagementbtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("UserManagementbtn.LargeGlyph")));
             this.UserManagementbtn.Name = "UserManagementbtn";
@@ -180,10 +180,11 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 514);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 640);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1101, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1284, 31);
             // 
             // applicationMenu1
             // 
@@ -213,16 +214,17 @@
             // 
             // HomepageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = global::ProcurementTrackingBalilihan.Properties.Resources.bg_photo;
-            this.ClientSize = new System.Drawing.Size(1101, 545);
+            this.ClientSize = new System.Drawing.Size(1284, 671);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HomepageForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;

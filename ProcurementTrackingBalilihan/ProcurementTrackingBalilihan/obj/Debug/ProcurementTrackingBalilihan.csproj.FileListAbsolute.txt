@@ -75,3 +75,4 @@ C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\Procureme
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.exe
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.pdb
 C:\Users\Mor\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.UserForm.resources
+C:\Users\Lenovo\Documents\GitHub\Procurement\ProcurementTrackingBalilihan\ProcurementTrackingBalilihan\obj\Debug\ProcurementTrackingBalilihan.UserForm.resources
