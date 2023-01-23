@@ -141,7 +141,7 @@ namespace ProcurementTrackingBalilihan
         private void bwPurchase_DoWork(object sender, DoWorkEventArgs e)
         {
             Purchase.AddSavePurchase(txtProcNo.Text, txtDescription.Text, txtEnduser.Text, txtPRmode.Text, float.Parse(txtABC.Text),
-                   cmbMode.Text, Convert.ToDateTime(dtpBids.Text), Convert.ToDateTime(dtpEval.Text), Convert.ToDateTime(dtpAward.Text), Convert.ToDateTime(dtpPO.Text), Convert.ToDateTime(dtpNTP.Text), dtpDelivery.Text, txtPurpose.Text, btnMode.Text);
+                   cmbMode.Text, dtpBids.Text, dtpEval.Text, dtpAward.Text, dtpPO.Text, dtpNTP.Text, dtpDelivery.Text, txtPurpose.Text, btnMode.Text);
             bwPurchase.CancelAsync();
         }
 
@@ -156,6 +156,7 @@ namespace ProcurementTrackingBalilihan
                 gcBox(true);
                 ControlTextBoxPanel(false);
                 clearfields();
+                gcprocno.Enabled = false;
                 
             }
             else
