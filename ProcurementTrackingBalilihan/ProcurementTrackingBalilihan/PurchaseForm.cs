@@ -149,13 +149,14 @@ namespace ProcurementTrackingBalilihan
                 gcProcDetails.Visible = true;
                 gcBox(true);
                 ControlTextBoxPanel(false);
+                clearfields();
                 
             }
             else
             {
                 MessageBox.Show("Save unsuccessful!" + Purchase.SaveErrorMessage);
             }
-            clearfields();
+
         }
         private void clearfields() {
             txtProcNo.Text = string.Empty;
@@ -352,8 +353,9 @@ namespace ProcurementTrackingBalilihan
 
         private void btnposting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Purchase.UpdateStatus(proc_no, "Posting");
-            clearfields();
+            gcDates.Visible = true;
+            lblstatus.Text = "Posting";
+           // Purchase.UpdateStatus(proc_no, "Posting");
 
         }
         string proc_no;
@@ -367,8 +369,9 @@ namespace ProcurementTrackingBalilihan
 
         private void btnprebid_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Purchase.UpdateStatus(proc_no, "Pre-Bidding");
-            clearfields();
+            gcDates.Visible = true;
+            lblstatus.Text = "Pre-Bidding";
+            //Purchase.UpdateStatus(proc_no, "Pre-Bidding");
         }
 
         private void btndelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -388,6 +391,28 @@ namespace ProcurementTrackingBalilihan
             {
                 MessageBox.Show("You do not have the access!\n Please Contact your administrator");
             }
+        }
+
+        private void btnpreproc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gcDates.Visible = true;
+            lblstatus.Text = "Pre-proc";
+
+        }
+
+        private void btnChangeDate_Click(object sender, EventArgs e)
+        {
+            Purchase.UpdateStatus(proc_no, lblstatus.Text, dtpPickaDate.Text);
+            if (Purchase.isUpdateSuccessfully)
+            {
+                MessageBox.Show("Updated Successfully!");
+            }
+            else
+            {
+                MessageBox.Show(Purchase.UpdateErrorMessage);
+            }
+            clearfields();
+            gcDates.Visible = false;
         }
     }
 }

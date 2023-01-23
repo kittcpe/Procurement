@@ -57,7 +57,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPRmode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtABC = new DevExpress.XtraEditors.TextEdit();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -123,13 +122,17 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtPropertyNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.gcDates = new DevExpress.XtraEditors.GroupControl();
+            this.btnChangeDate = new DevExpress.XtraEditors.SimpleButton();
+            this.lblstatus = new DevExpress.XtraEditors.LabelControl();
+            this.dtpPickaDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.txtPurpose = new DevExpress.XtraEditors.MemoEdit();
+            this.txtPRmode = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dtPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtABC.Properties)).BeginInit();
             this.txtABC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMode.Properties)).BeginInit();
@@ -157,7 +160,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItemDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPropertyNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDates)).BeginInit();
+            this.gcDates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPickaDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPickaDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurpose.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPurchase
@@ -171,7 +179,7 @@
             this.dtPurchase.MainView = this.gvPurchase;
             this.dtPurchase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtPurchase.Name = "dtPurchase";
-            this.dtPurchase.Size = new System.Drawing.Size(1722, 1129);
+            this.dtPurchase.Size = new System.Drawing.Size(1474, 994);
             this.dtPurchase.TabIndex = 262;
             this.dtPurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPurchase});
@@ -375,7 +383,7 @@
             this.btnMode.Appearance.Options.UseFont = true;
             this.btnMode.Image = ((System.Drawing.Image)(resources.GetObject("btnMode.Image")));
             this.btnMode.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnMode.Location = new System.Drawing.Point(2259, 1070);
+            this.btnMode.Location = new System.Drawing.Point(2011, 935);
             this.btnMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMode.Name = "btnMode";
             this.btnMode.Size = new System.Drawing.Size(184, 77);
@@ -386,7 +394,7 @@
             // txtProcNo
             // 
             this.txtProcNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProcNo.Location = new System.Drawing.Point(1902, 39);
+            this.txtProcNo.Location = new System.Drawing.Point(1654, 39);
             this.txtProcNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtProcNo.Name = "txtProcNo";
             this.txtProcNo.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,7 +406,7 @@
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(1778, 44);
+            this.labelControl1.Location = new System.Drawing.Point(1530, 44);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(72, 24);
@@ -427,7 +435,7 @@
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(1749, 101);
+            this.labelControl2.Location = new System.Drawing.Point(1501, 101);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(144, 24);
@@ -437,7 +445,7 @@
             // txtDescription
             // 
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(1902, 96);
+            this.txtDescription.Location = new System.Drawing.Point(1654, 96);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,29 +457,18 @@
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(1749, 240);
+            this.labelControl3.Location = new System.Drawing.Point(1501, 240);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(132, 24);
             this.labelControl3.TabIndex = 268;
             this.labelControl3.Text = "Mode of PR:";
             // 
-            // txtPRmode
-            // 
-            this.txtPRmode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPRmode.Location = new System.Drawing.Point(1902, 236);
-            this.txtPRmode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPRmode.Name = "txtPRmode";
-            this.txtPRmode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPRmode.Properties.Appearance.Options.UseFont = true;
-            this.txtPRmode.Size = new System.Drawing.Size(541, 30);
-            this.txtPRmode.TabIndex = 269;
-            // 
             // labelControl4
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(1836, 281);
+            this.labelControl4.Location = new System.Drawing.Point(1588, 281);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 24);
@@ -485,7 +482,7 @@
             this.txtABC.Controls.Add(this.barDockControlRight);
             this.txtABC.Controls.Add(this.barDockControlBottom);
             this.txtABC.Controls.Add(this.barDockControlTop);
-            this.txtABC.Location = new System.Drawing.Point(1904, 277);
+            this.txtABC.Location = new System.Drawing.Point(1656, 277);
             this.txtABC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtABC.Name = "txtABC";
             this.txtABC.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -533,7 +530,7 @@
             // 
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(1796, 322);
+            this.labelControl5.Location = new System.Drawing.Point(1548, 322);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(84, 24);
@@ -543,8 +540,8 @@
             // cmbMode
             // 
             this.cmbMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMode.EditValue = "Pre-Proc";
-            this.cmbMode.Location = new System.Drawing.Point(1904, 318);
+            this.cmbMode.EditValue = "";
+            this.cmbMode.Location = new System.Drawing.Point(1656, 318);
             this.cmbMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbMode.Name = "cmbMode";
             this.cmbMode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -565,7 +562,7 @@
             // 
             this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl6.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(1796, 385);
+            this.labelControl6.Location = new System.Drawing.Point(1548, 385);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(192, 24);
@@ -576,7 +573,7 @@
             // 
             this.dtpBids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpBids.EditValue = null;
-            this.dtpBids.Location = new System.Drawing.Point(2001, 381);
+            this.dtpBids.Location = new System.Drawing.Point(1753, 381);
             this.dtpBids.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBids.Name = "dtpBids";
             this.dtpBids.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -602,7 +599,7 @@
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(1778, 436);
+            this.labelControl7.Location = new System.Drawing.Point(1530, 436);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(216, 24);
@@ -613,7 +610,7 @@
             // 
             this.dtpEval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEval.EditValue = null;
-            this.dtpEval.Location = new System.Drawing.Point(2001, 432);
+            this.dtpEval.Location = new System.Drawing.Point(1753, 432);
             this.dtpEval.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpEval.Name = "dtpEval";
             this.dtpEval.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -629,7 +626,7 @@
             // 
             this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl8.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(1922, 489);
+            this.labelControl8.Location = new System.Drawing.Point(1674, 489);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(72, 24);
@@ -640,7 +637,7 @@
             // 
             this.dtpAward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAward.EditValue = null;
-            this.dtpAward.Location = new System.Drawing.Point(2001, 484);
+            this.dtpAward.Location = new System.Drawing.Point(1753, 484);
             this.dtpAward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpAward.Name = "dtpAward";
             this.dtpAward.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -656,7 +653,7 @@
             // 
             this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(1953, 538);
+            this.labelControl9.Location = new System.Drawing.Point(1705, 538);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(36, 24);
@@ -667,7 +664,7 @@
             // 
             this.dtpPO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPO.EditValue = null;
-            this.dtpPO.Location = new System.Drawing.Point(2001, 534);
+            this.dtpPO.Location = new System.Drawing.Point(1753, 534);
             this.dtpPO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpPO.Name = "dtpPO";
             this.dtpPO.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -683,7 +680,7 @@
             // 
             this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl10.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(1940, 593);
+            this.labelControl10.Location = new System.Drawing.Point(1692, 593);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(48, 24);
@@ -694,7 +691,7 @@
             // 
             this.dtpNTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNTP.EditValue = null;
-            this.dtpNTP.Location = new System.Drawing.Point(2001, 588);
+            this.dtpNTP.Location = new System.Drawing.Point(1753, 588);
             this.dtpNTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNTP.Name = "dtpNTP";
             this.dtpNTP.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -710,7 +707,7 @@
             // 
             this.dtpDelivery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDelivery.EditValue = null;
-            this.dtpDelivery.Location = new System.Drawing.Point(1998, 635);
+            this.dtpDelivery.Location = new System.Drawing.Point(1750, 635);
             this.dtpDelivery.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
@@ -726,7 +723,7 @@
             // 
             this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl11.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Location = new System.Drawing.Point(1881, 639);
+            this.labelControl11.Location = new System.Drawing.Point(1633, 639);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(108, 24);
@@ -816,6 +813,7 @@
             this.btnpreproc.Id = 8;
             this.btnpreproc.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnpreproc.LargeGlyph")));
             this.btnpreproc.Name = "btnpreproc";
+            this.btnpreproc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnpreproc_ItemClick);
             // 
             // btnposting
             // 
@@ -867,7 +865,7 @@
             // txtEnduser
             // 
             this.txtEnduser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEnduser.Location = new System.Drawing.Point(1902, 196);
+            this.txtEnduser.Location = new System.Drawing.Point(1654, 196);
             this.txtEnduser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEnduser.Name = "txtEnduser";
             this.txtEnduser.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -879,7 +877,7 @@
             // 
             this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl12.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Location = new System.Drawing.Point(1785, 200);
+            this.labelControl12.Location = new System.Drawing.Point(1537, 200);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(108, 24);
@@ -907,7 +905,7 @@
             this.gcProcDetails.Controls.Add(this.labelControl14);
             this.gcProcDetails.Controls.Add(this.txtPropertyNo);
             this.gcProcDetails.Controls.Add(this.labelControl13);
-            this.gcProcDetails.Location = new System.Drawing.Point(60, 0);
+            this.gcProcDetails.Location = new System.Drawing.Point(132, 176);
             this.gcProcDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcProcDetails.Name = "gcProcDetails";
             this.gcProcDetails.Size = new System.Drawing.Size(1408, 811);
@@ -1244,11 +1242,63 @@
             this.labelControl13.TabIndex = 296;
             this.labelControl13.Text = "Item Details:";
             // 
+            // gcDates
+            // 
+            this.gcDates.Controls.Add(this.btnChangeDate);
+            this.gcDates.Controls.Add(this.lblstatus);
+            this.gcDates.Controls.Add(this.dtpPickaDate);
+            this.gcDates.Location = new System.Drawing.Point(804, 115);
+            this.gcDates.Name = "gcDates";
+            this.gcDates.Size = new System.Drawing.Size(529, 233);
+            this.gcDates.TabIndex = 313;
+            this.gcDates.Text = "Pick a Date";
+            this.gcDates.Visible = false;
+            // 
+            // btnChangeDate
+            // 
+            this.btnChangeDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeDate.Appearance.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeDate.Appearance.Options.UseFont = true;
+            this.btnChangeDate.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeDate.Image")));
+            this.btnChangeDate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnChangeDate.Location = new System.Drawing.Point(188, 131);
+            this.btnChangeDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnChangeDate.Name = "btnChangeDate";
+            this.btnChangeDate.Size = new System.Drawing.Size(159, 55);
+            this.btnChangeDate.TabIndex = 305;
+            this.btnChangeDate.Text = "Set";
+            this.btnChangeDate.Click += new System.EventHandler(this.btnChangeDate_Click);
+            // 
+            // lblstatus
+            // 
+            this.lblstatus.Appearance.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstatus.Location = new System.Drawing.Point(209, 43);
+            this.lblstatus.Name = "lblstatus";
+            this.lblstatus.Size = new System.Drawing.Size(110, 34);
+            this.lblstatus.TabIndex = 304;
+            this.lblstatus.Text = "STATUS";
+            // 
+            // dtpPickaDate
+            // 
+            this.dtpPickaDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpPickaDate.EditValue = null;
+            this.dtpPickaDate.Location = new System.Drawing.Point(51, 91);
+            this.dtpPickaDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpPickaDate.Name = "dtpPickaDate";
+            this.dtpPickaDate.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
+            this.dtpPickaDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpPickaDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpPickaDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpPickaDate.Size = new System.Drawing.Size(445, 30);
+            this.dtpPickaDate.TabIndex = 303;
+            // 
             // labelControl20
             // 
             this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl20.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl20.Location = new System.Drawing.Point(1893, 679);
+            this.labelControl20.Location = new System.Drawing.Point(1645, 679);
             this.labelControl20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(96, 24);
@@ -1258,7 +1308,7 @@
             // txtPurpose
             // 
             this.txtPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPurpose.Location = new System.Drawing.Point(1998, 676);
+            this.txtPurpose.Location = new System.Drawing.Point(1750, 676);
             this.txtPurpose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1266,11 +1316,34 @@
             this.txtPurpose.Size = new System.Drawing.Size(449, 110);
             this.txtPurpose.TabIndex = 301;
             // 
+            // txtPRmode
+            // 
+            this.txtPRmode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPRmode.EditValue = "";
+            this.txtPRmode.Location = new System.Drawing.Point(1654, 234);
+            this.txtPRmode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPRmode.Name = "txtPRmode";
+            this.txtPRmode.Properties.Appearance.Font = new System.Drawing.Font("MS Gothic", 12F);
+            this.txtPRmode.Properties.Appearance.Options.UseFont = true;
+            this.txtPRmode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPRmode.Properties.DropDownRows = 3;
+            this.txtPRmode.Properties.Items.AddRange(new object[] {
+            "Public Bidding",
+            "Negotiated Procurement under Emergency Class",
+            "Negotiated Procurement (SVP)"});
+            this.txtPRmode.Properties.NullText = "Pre-proc";
+            this.txtPRmode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtPRmode.Size = new System.Drawing.Size(541, 30);
+            this.txtPRmode.TabIndex = 302;
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2461, 1165);
+            this.ClientSize = new System.Drawing.Size(2213, 1030);
+            this.Controls.Add(this.gcDates);
+            this.Controls.Add(this.txtPRmode);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.txtEnduser);
             this.Controls.Add(this.dtpDelivery);
@@ -1289,7 +1362,6 @@
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.txtABC);
             this.Controls.Add(this.labelControl4);
-            this.Controls.Add(this.txtPRmode);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
@@ -1311,7 +1383,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtABC.Properties)).EndInit();
             this.txtABC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbMode.Properties)).EndInit();
@@ -1340,7 +1411,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItemDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPropertyNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDates)).EndInit();
+            this.gcDates.ResumeLayout(false);
+            this.gcDates.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPickaDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpPickaDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPurpose.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPRmode.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1363,7 +1440,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.MemoEdit txtDescription;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit txtPRmode;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtABC;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -1443,5 +1519,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private System.Windows.Forms.ComboBox cbesupplier;
         private DevExpress.XtraGrid.Columns.GridColumn supplier;
+        private DevExpress.XtraEditors.ComboBoxEdit txtPRmode;
+        private DevExpress.XtraEditors.GroupControl gcDates;
+        private DevExpress.XtraEditors.LabelControl lblstatus;
+        private DevExpress.XtraEditors.DateEdit dtpPickaDate;
+        private DevExpress.XtraEditors.SimpleButton btnChangeDate;
     }
 }

@@ -80,6 +80,47 @@ namespace ProcurementTrackingBalilihan.Dal
                                 isSaveSuccessfully = true;
                                 con.Close();
                             }
+                            else if (status == "Posting")
+                            {
+                                MySqlCommand cmd = new MySqlCommand("INSERT INTO `procurement_status`(pr_no, description, end_user, mode_of_pr, abc, posting, opening_of_bids, detailed_bid_eval, award, po, ntp, delivery, purpose) VALUES ('"
+                                   + PRno + "','" //varchar
+                                   + description + "','" //varchar
+                                   + enduser + "','" //varchar
+                                   + mode_of_pr + "',"//varchar
+                                   + amount + "," //float
+                                   + "CURRENT_TIMESTAMP" + ",STR_TO_DATE('" //mysqldate format 
+                                   + opening_of_bids + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
+                                   + detailed_bid_eval + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
+                                   + award + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + po + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + ntp + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + delivery //date
+                                   + "', '%m/%d/%Y'),'" + purpose + "')", con);
+                                cmd.ExecuteNonQuery();
+                                isSaveSuccessfully = true;
+                                con.Close();
+                            }
+                            else
+                            {
+                                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `procurement_status`(pr_no, description, end_user, mode_of_pr, abc, pre_bid, opening_of_bids, detailed_bid_eval, award, po, ntp, delivery, purpose) VALUES ('"
+                                   + PRno + "','" //varchar
+                                   + description + "','" //varchar
+                                   + enduser + "','" //varchar
+                                   + mode_of_pr + "',"//varchar
+                                   + amount + "," //float
+                                   + "CURRENT_TIMESTAMP" + ",STR_TO_DATE('" //mysqldate format 
+                                   + opening_of_bids + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
+                                   + detailed_bid_eval + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
+                                   + award + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + po + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + ntp + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + delivery //date
+                                   + "', '%m/%d/%Y'),'" + purpose + "')", con);
+                                    cmd.ExecuteNonQuery();
+                                    isSaveSuccessfully = true;
+                                    con.Close();
+                            
+                            }
                         }
                        else
                         {
@@ -116,7 +157,7 @@ namespace ProcurementTrackingBalilihan.Dal
 
         public static bool isUpdateSuccessfully = false;
         public static string UpdateErrorMessage;
-        public static void UpdateStatus(string id,string status)
+        public static void UpdateStatus(string id,string status, string date)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString()))
             {
@@ -127,18 +168,26 @@ namespace ProcurementTrackingBalilihan.Dal
                     
                     if (status == "Posting")
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = CURRENT_TIMESTAMP  WHERE pr_no ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
                     }
-                    else
+                    else if (status == "Pre-Bidding")
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = CURRENT_TIMESTAMP  WHERE pr_no ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
 
+                    }
+                    else
+                    {
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_proc = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
+                        cmd.ExecuteNonQuery();
+                        isUpdateSuccessfully = true;
+                        con.Close();
+                    
                     }
                 }
                 catch (Exception ex)
