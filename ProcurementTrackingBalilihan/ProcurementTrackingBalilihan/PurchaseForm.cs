@@ -70,7 +70,6 @@ namespace ProcurementTrackingBalilihan
                 btndelete.Enabled = false;
             }
 
-            btnAddProc.PerformClick();
         }
 
         DataTable supplierdata = new DataTable();
@@ -96,7 +95,6 @@ namespace ProcurementTrackingBalilihan
         }
 
         DataTable procurementdata = new DataTable();
-        public static string rownumber;
         private void bwViewProcurementList_DoWork(object sender, DoWorkEventArgs e)
         {
             procurementdata = Purchase.GetTrackItem();
@@ -108,10 +106,6 @@ namespace ProcurementTrackingBalilihan
             if (Purchase.gettrackitemsuccessfull)
             {
                 dtPurchase.DataSource = procurementdata;
-                rownumber = procurementdata.Rows.Count.ToString();
-                string Yeartext = DateTime.Now.Year.ToString();
-                string Monthtext = DateTime.Now.Month.ToString("d2");
-                txtProcNo.Text = Yeartext + "-" + Monthtext + " " + rownumber;
             }
             else
             {
@@ -164,6 +158,7 @@ namespace ProcurementTrackingBalilihan
             clearfields();
         }
         private void clearfields() {
+            txtProcNo.Text = string.Empty;
             txtDescription.Text = string.Empty;
             txtEnduser.Text = string.Empty;
             txtPRmode.Text = string.Empty;
@@ -200,12 +195,8 @@ namespace ProcurementTrackingBalilihan
 
         private void btnAddProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string Yeartext = DateTime.Now.Year.ToString();
-            string Monthtext = DateTime.Now.Month.ToString("d2");
-            rownumbertxt.Text = Yeartext + "-" + Monthtext + " " + rownumbertxt.Text;
-            txtProcNo.Text = rownumbertxt.Text;
             btnMode.Text = "Add";
-          
+            clearfields();
         }
 
         private void btnEditProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -398,6 +389,5 @@ namespace ProcurementTrackingBalilihan
                 MessageBox.Show("You do not have the access!\n Please Contact your administrator");
             }
         }
-
     }
 }
