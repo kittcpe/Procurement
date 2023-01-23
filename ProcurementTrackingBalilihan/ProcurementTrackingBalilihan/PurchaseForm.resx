@@ -160,16 +160,16 @@
 </value>
   </data>
   <metadata name="bwViewSupplierList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>194, 17</value>
+    <value>259, 17</value>
   </metadata>
   <metadata name="bwViewProcurementList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>351, 17</value>
+    <value>471, 17</value>
   </metadata>
   <metadata name="bwPurchase.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>533, 17</value>
+    <value>721, 17</value>
   </metadata>
   <metadata name="barManagerGridProc.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>650, 17</value>
+    <value>872, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>60</value>
@@ -986,6 +986,6 @@
 </value>
   </data>
   <metadata name="popupMenuGridParent.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>815, 17</value>
+    <value>1096, 17</value>
   </metadata>
 </root>
