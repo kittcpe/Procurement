@@ -69,7 +69,6 @@ namespace ProcurementTrackingBalilihan
                 btnChangeStatus.Enabled = false;
                 btndelete.Enabled = false;
             }
-
         }
 
         DataTable supplierdata = new DataTable();
@@ -95,6 +94,8 @@ namespace ProcurementTrackingBalilihan
         }
 
         DataTable procurementdata = new DataTable();
+        public string rownumber;
+        public string prno;
         private void bwViewProcurementList_DoWork(object sender, DoWorkEventArgs e)
         {
             procurementdata = Purchase.GetTrackItem();
@@ -106,6 +107,11 @@ namespace ProcurementTrackingBalilihan
             if (Purchase.gettrackitemsuccessfull)
             {
                 dtPurchase.DataSource = procurementdata;
+                string YearLabel = DateTime.Now.Year.ToString();
+                string MonthLabel = DateTime.Now.Month.ToString();
+                rownumber = procurementdata.Rows.Count.ToString();
+                prno = YearLabel + "-" + MonthLabel + " " + rownumber;
+               
             }
             else
             {
@@ -159,7 +165,6 @@ namespace ProcurementTrackingBalilihan
 
         }
         private void clearfields() {
-            txtProcNo.Text = string.Empty;
             txtDescription.Text = string.Empty;
             txtEnduser.Text = string.Empty;
             txtPRmode.Text = string.Empty;
@@ -196,12 +201,16 @@ namespace ProcurementTrackingBalilihan
 
         private void btnAddProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            txtProcNo.Text = prno;
+            txtProcNo.Enabled = true;
+            gcprocno.Enabled = true;
             btnMode.Text = "Add";
             clearfields();
         }
 
         private void btnEditProc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            gcprocno.Enabled = true;
             if (PublicVariables.UserPrivilege == "Administrator")
             {
                 btnMode.Text = "Save";
@@ -414,5 +423,12 @@ namespace ProcurementTrackingBalilihan
             clearfields();
             gcDates.Visible = false;
         }
+
+        private void statuscancelbtn_Click(object sender, EventArgs e)
+        {
+            gcDates.Visible = false;
+            gcDates.Enabled = false;
+        }
+
     }
 }

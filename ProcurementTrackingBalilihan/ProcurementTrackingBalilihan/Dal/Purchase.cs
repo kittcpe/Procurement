@@ -29,7 +29,7 @@ namespace ProcurementTrackingBalilihan.Dal
                     con.Open();
                     //MySqlCommand cmd = new MySqlCommand("SELECT pl.id,pl.description,pl.`amount`,pl.`added_on`,pl.`status`,sl.`name` FROM `procurement_list` pl INNER JOIN `supplier_list` sl WHERE pl.`supplier` = sl.`id`;", con);
                     //MySqlCommand cmd = new MySqlCommand("SELECT id, pr_no, description, end_user, mode_of_pr, abc, pre_proc, posting, pre_bid, DATE(opening_of_bids) AS opening_of_bids, DATE(detailed_bid_eval) AS detailed_bid_eval, DATE(award) AS award, DATE(po) AS po, DATE(ntp) AS ntp, DATE(delivery) AS delivery, purpose FROM procurement_status", con);
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM procurement_status", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM procurement_status ORDER BY id ASC", con);
                     //  cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
