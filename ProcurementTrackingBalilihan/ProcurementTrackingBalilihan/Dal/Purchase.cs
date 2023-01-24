@@ -69,13 +69,13 @@ namespace ProcurementTrackingBalilihan.Dal
                                     + mode_of_pr + "',"//varchar
                                     + amount + "," //float
                                     + "CURRENT_TIMESTAMP" + ",STR_TO_DATE('" //mysqldate format 
-                                    + opening_of_bids + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                    + detailed_bid_eval + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                    + award + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                    + po + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                    + ntp + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                    + opening_of_bids + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                    + detailed_bid_eval + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                    + award + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                    + po + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                    + ntp + "', '%d/%m/%Y'),STR_TO_DATE('" //date
                                     + delivery //date
-                                    + "', '%m/%d/%Y'),'" + purpose + "')", con);
+                                    + "', '%d/%m/%Y'),'" + purpose + "')", con);
                                 cmd.ExecuteNonQuery();
                                 isSaveSuccessfully = true;
                                 con.Close();
@@ -89,13 +89,13 @@ namespace ProcurementTrackingBalilihan.Dal
                                    + mode_of_pr + "',"//varchar
                                    + amount + "," //float
                                    + "CURRENT_TIMESTAMP" + ",STR_TO_DATE('" //mysqldate format 
-                                   + opening_of_bids + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                   + detailed_bid_eval + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                   + award + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                   + po + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                   + ntp + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + opening_of_bids + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                   + detailed_bid_eval + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                   + award + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                   + po + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                   + ntp + "', '%d/%m/%Y'),STR_TO_DATE('" //date
                                    + delivery //date
-                                   + "', '%m/%d/%Y'),'" + purpose + "')", con);
+                                   + "', '%d/%m/%Y'),'" + purpose + "')", con);
                                 cmd.ExecuteNonQuery();
                                 isSaveSuccessfully = true;
                                 con.Close();
@@ -109,13 +109,13 @@ namespace ProcurementTrackingBalilihan.Dal
                                    + mode_of_pr + "',"//varchar
                                    + amount + "," //float
                                    + "CURRENT_TIMESTAMP" + ",STR_TO_DATE('" //mysqldate format 
-                                   + opening_of_bids + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                   + detailed_bid_eval + "', '%m/%d/%Y'),STR_TO_DATE('" //date 
-                                   + award + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                   + po + "', '%m/%d/%Y'),STR_TO_DATE('" //date
-                                   + ntp + "', '%m/%d/%Y'),STR_TO_DATE('" //date
+                                   + opening_of_bids + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                   + detailed_bid_eval + "', '%d/%m/%Y'),STR_TO_DATE('" //date 
+                                   + award + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                   + po + "', '%d/%m/%Y'),STR_TO_DATE('" //date
+                                   + ntp + "', '%d/%m/%Y'),STR_TO_DATE('" //date
                                    + delivery //date
-                                   + "', '%m/%d/%Y'),'" + purpose + "')", con);
+                                   + "', '%d/%m/%Y'),'" + purpose + "')", con);
                                     cmd.ExecuteNonQuery();
                                     isSaveSuccessfully = true;
                                     con.Close();
@@ -129,12 +129,12 @@ namespace ProcurementTrackingBalilihan.Dal
                             "end_user = '" + enduser + "'," + 
                             "mode_of_pr = '" +  mode_of_pr + "'," + 
                             "abc = '" + amount + "'," +
-                            "opening_of_bids = STR_TO_DATE('" + opening_of_bids + "', '%m/%d/%Y')," +
-                            "detailed_bid_eval = STR_TO_DATE('" + detailed_bid_eval + "', '%m/%d/%Y')," +
-                            "award = STR_TO_DATE('" + award + "', '%m/%d/%Y'), " +
-                            "po = STR_TO_DATE('" + po + "', '%m/%d/%Y')," +
-                            "ntp = STR_TO_DATE('" + ntp + "', '%m/%d/%Y')," +
-                            "delivery = STR_TO_DATE('" + delivery + "', '%m/%d/%Y')," +
+                            "opening_of_bids = STR_TO_DATE('" + opening_of_bids + "', '%d/%m/%Y')," +
+                            "detailed_bid_eval = STR_TO_DATE('" + detailed_bid_eval + "', '%d/%m/%Y')," +
+                            "award = STR_TO_DATE('" + award + "', '%d/%m/%Y'), " +
+                            "po = STR_TO_DATE('" + po + "', '%d/%m/%Y')," +
+                            "ntp = STR_TO_DATE('" + ntp + "', '%d/%m/%Y')," +
+                            "delivery = STR_TO_DATE('" + delivery + "', '%d/%m/%Y')," +
                             "purpose = '" + purpose +
                              "' WHERE pr_no ='" + PRno + "'", con);
                             cmd.ExecuteNonQuery();
@@ -168,14 +168,14 @@ namespace ProcurementTrackingBalilihan.Dal
                     
                     if (status == "Posting")
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET posting = STR_TO_DATE('" + date + "', '%d/%m/%Y')  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
                     }
                     else if (status == "Pre-Bidding")
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_bid = STR_TO_DATE('" + date + "', '%d/%m/%Y')  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
@@ -183,7 +183,7 @@ namespace ProcurementTrackingBalilihan.Dal
                     }
                     else
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_proc = STR_TO_DATE('" + date + "', '%m/%d/%Y')  WHERE pr_no ='" + id + "' ", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE `procurement_status` SET pre_proc = STR_TO_DATE('" + date + "', '%d/%m/%Y')  WHERE pr_no ='" + id + "' ", con);
                         cmd.ExecuteNonQuery();
                         isUpdateSuccessfully = true;
                         con.Close();
